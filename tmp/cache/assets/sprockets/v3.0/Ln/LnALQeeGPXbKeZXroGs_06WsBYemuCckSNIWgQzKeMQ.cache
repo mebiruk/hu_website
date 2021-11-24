@@ -1,0 +1,23 @@
+{:uriI"€file:///var/lib/gems/2.7.0/gems/ckeditor_rails-4.16.3/vendor/assets/javascripts/ckeditor/plugins/exportpdf/tests/manual/emptyeditor.html?type=text/html&id=5e140dd6e9a4c321d6c6b9012a00fcaf2dc145ba095f9fa614daab7a730fc0dc:ET:load_pathI"M/var/lib/gems/2.7.0/gems/ckeditor_rails-4.16.3/vendor/assets/javascripts;T:filenameI"Å/var/lib/gems/2.7.0/gems/ckeditor_rails-4.16.3/vendor/assets/javascripts/ckeditor/plugins/exportpdf/tests/manual/emptyeditor.html;T:	nameI"8ckeditor/plugins/exportpdf/tests/manual/emptyeditor;T:logical_pathI"=ckeditor/plugins/exportpdf/tests/manual/emptyeditor.html;T:content_typeI"text/html;T:sourceI"û<div id="editor1">
+</div>
+
+<div id="editor2">
+	<p>My content and wrapper will be deleted.</p>
+</div>
+
+<script>
+	exportPdfUtils.initManualTest();
+
+	CKEDITOR.replace( 'editor1', exportPdfUtils.getDefaultConfig( 'manual' ) );
+
+	var editor2 = CKEDITOR.replace( 'editor2', exportPdfUtils.getDefaultConfig( 'manual' ) );
+
+	editor2.on( 'exportPdf', function( evt ) {
+		evt.data.html = '';
+	}, null, null, 16 );
+</script>
+;T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"èfile-digest:///var/lib/gems/2.7.0/gems/ckeditor_rails-4.16.3/vendor/assets/javascripts/ckeditor/plugins/exportpdf/tests/manual/emptyeditor.html;TTF:charsetI"
+utf-8;F:digest"%»VLŒ,/·1ï˜x~n¢Âñ{>Ñ§√ë’F®Œ£\€:lengthiû:dependencies_digest"%ä8∫ÓÆˆˇ3Vù{ΩÌ$πÆYëÎòxÃD&_5:idI"E5e140dd6e9a4c321d6c6b9012a00fcaf2dc145ba095f9fa614daab7a730fc0dc;F:
+mtimel+©éña

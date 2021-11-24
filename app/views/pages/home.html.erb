@@ -1,0 +1,311 @@
+   <!-- ======= Hero Section ======= -->
+   <section id="hero" class="d-flex align-items-center">
+
+   	<div class="container-fluid" data-aos="zoom-out" data-aos-delay="100">
+   		<div class="row justify-content-center">
+   			<div class="col-xl-10">
+   				<div class="row">
+   					<div class="col-xl-6 mt-2">
+
+   						<%= image_tag "logo223.png", size: "250x75"%>
+   						<h1>YIC Started online masters Registration </h1>
+   						<h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h2>
+   						<a href="https://sis.yic.edu.et/students/sign_up" class="btn-get-started scrollto">Apply now</a>
+   					</div>
+   					<div class="col-12 col-xl-6 mt-3 mb-2">
+   						<div class="embed-responsive embed-responsive-16by9">
+   							<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Sxuk-tbnNtE" allowfullscreen></iframe>
+   						</div>
+   					</div>
+   				</div>
+   			</div>
+   		</div>
+   	</div>
+
+   </section><!-- End Hero -->
+
+   <main id="main">
+   	<section id="services" class="services" >
+   		<div class="container" data-aos="zoom-out" data-aos-delay="100">
+
+   			<div class="section-title">
+   				<h2>I want to be the future of</h2>
+   			</div>
+
+   			<div class="row justify-content-center">
+				
+				<% @admissions.each do |admission| %>
+					<div class="col-lg-3 col-md-6">
+						<a href="admissions/<%= admission.id%>">
+							<div class="icon-box d-flex justify-content-center">
+								<h4 class="d-flex align-items-center"><a href="admissions/<%= admission.id%>"><%= admission.modality %> <%= admission.study_level%></a></h4>
+							</div>
+						</a>
+					</div>
+				<% end %>
+   			</div>
+
+   		</div>
+   	</section>
+
+   	<section id="cta" class="cta" data-aos="zoom-in" data-aos-delay="100">
+   		<div class="container aos-init aos-animate " data-aos="zoom-in">
+			<% @marketing.where(page_to_display: 'home').each do |m|%>
+				<div class="text-center">
+					<h3><%= m.headline_title%></h3>
+					<p><%= m.description%></p>
+					<a class="cta-btn" href="<%= m.action%>">Learn more</a>
+				</div>
+			<% end %>
+   		</div>
+   	</section>
+
+   	<section id="recent-blog-posts" class="recent-blog-posts">
+
+   		<div class="container aos-init aos-animate" data-aos="fade-up">
+
+   			<header class="section-header" data-aos="zoom-in">
+   				<h2>Programs</h2>
+   				<p>Our Degree Program</p>
+   			</header>
+
+   			<div class="row">
+
+   				<%Program.where(study_level: 'undergraduate').each do |pro|%>
+				    <div class="col-lg-3" style="padding-right: 5px;">
+						<div class="post-box">
+							<div class="post-img"><img src="https://iedunote.com/img/1547/functions-steps-of-management-process.png" class="img-fluid" alt=""></div>
+							<h3 class="post-title"><%= pro.program_name%></h3>
+							<span class="post-date"><strong>modality:-</strong><%=  pro.modality%></span>
+							<span class="post-date mb-4"><%= pro.program_description%></span>
+							<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
+						</div>
+   					</div>
+				<% end %>
+
+   			</div>
+
+   		</div>
+
+   	</section>
+   	<section id="recent-blog-posts" class="recent-blog-posts">
+
+   		<div class="container aos-init aos-animate" data-aos="fade-up">
+
+   			<header class="section-header" data-aos="zoom-in">
+   				<h2>Programs</h2>
+   				<p>Our Masters Program</p>
+   			</header>
+
+   			<div class="row">
+				<%Program.where(study_level: 'graduate').each do |pro|%>
+					<div class="col-lg-3" style="padding-right: 5px;">
+						<div class="post-box">
+							<div class="post-img"><img src="https://iedunote.com/img/1547/functions-steps-of-management-process.png" class="img-fluid" alt=""></div>
+							<h3 class="post-title"><%= pro.program_name%></h3>
+							<span class="post-date"><strong>modality:-</strong><%=  pro.modality%></span>
+							<span class="post-date mb-4"><%= pro.program_description%></span>
+							<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
+						</div>
+   					</div>
+				<% end %>
+   				
+   			</div>
+
+   		</div>
+
+   	</section>
+
+
+   	<!-- ======= About Section ======= -->
+   	<section id="about" class="about section-bg">
+   		<div class="container" data-aos="fade-up">
+
+   			<div class="row no-gutters">
+   				<div class="content col-xl-5 d-flex align-items-stretch">
+   					<div class="content">
+   						<h3><%= Time.now.year - @college.establishment_date.year %> Years Of Academic Services</h3>
+   						<p>
+   							<%= @college.overview %>
+   						</p>
+   						<a href="about" class="about-btn"><span>About us</span> <i class="bx bx-chevron-right"></i></a>
+   					</div>
+   				</div>
+   				<div class="col-xl-7 d-flex align-items-stretch">
+   					<div class="icon-boxes d-flex flex-column justify-content-center">
+   						<div class="row">
+   							<div class="col-md-6 icon-box mt-0" data-aos="fade-up" data-aos-delay="100">
+   								<i class="bx bx-receipt"></i>
+   								<h4>Vision</h4>
+   								<p><%= @college.vision.html_safe%></p>
+   							</div>
+   							<div class="col-md-6 icon-box mt-0" data-aos="fade-up" data-aos-delay="200">
+   								<i class="bx bx-cube-alt"></i>
+   								<h4>Mission </h4>
+   								<p><%= @college.mission.html_safe%></p>
+   							</div>
+                <!-- <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+                  <i class="bx bx-images"></i>
+                  <h4>Labore consequatur</h4>
+                  <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                </div>
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
+                  <i class="bx bx-shield"></i>
+                  <h4>Beatae veritatis</h4>
+                  <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
+                </div> -->
+              </div>
+            </div><!-- End .content-->
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section id="recent-blog-posts" class="recent-blog-posts">
+
+    	<div class="container aos-init aos-animate" data-aos="fade-up">
+
+    		<header class="section-header">
+    			<h2>News</h2>
+    			<p>Latest News & Events</p>
+    		</header>
+    		<div class="row">
+    			<% @news.each do |n|%>
+					<div class="col-lg-4">
+					<div class="post-box">
+						<div class="post-img"><%= image_tag n.photo %></div>
+						<span class="post-date"><%= n.created_at%></span>
+						<h3 class="post-title"><%= n.news_title %></h3>
+						<a href="news.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+					</div>
+					</div>
+				<% end %>
+    		</div>
+
+    	</div>
+
+    </section>
+
+    <section id="cta" class="cta">
+    	<div class="container aos-init aos-animate " data-aos="zoom-in">
+			<% @marketing.where(page_to_display: 'home').each do |m|%>
+				<div class="text-center">
+					<h3><%= m.headline_title%></h3>
+					<p><%= m.description%></p>
+					<a class="cta-btn" href="<%= m.action%>">Learn more</a>
+				</div>
+			<% end %>
+    	</div>
+    </section>
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials">
+    	<div class="container" data-aos="fade-up">
+    		<div class="section-title">
+    			<h2>Testimonials</h2>
+    			<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p>
+    		</div>
+    	</div>
+
+    	<div class="container-fluid">
+
+    		<div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
+    			<div class="col-xl-10">
+    				<div class="owl-carousel testimonials-carousel">
+						<% @comment.where(display_on_home_page: true).each do |c|%>
+							<div class="testimonial-wrap">
+								<div class="testimonial-item">
+								<img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+								<h3><%= c.fullname%></h3>
+								<h4>Ceo &amp; Founder</h4>
+								<p>
+								<i class="bx bxs-quote-alt-left quote-icon-left"></i>
+								<%= c.message%>
+								<i class="bx bxs-quote-alt-right quote-icon-right"></i>
+								</p>
+								</div>
+							</div>
+						<% end %>
+    				</div>
+    			</div>
+    		</div>
+
+    	</div>
+    </section><!-- End Testimonials Section -->
+
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+    	<div class="container" data-aos="fade-up">
+
+    		<div class="section-title">
+    			<h2>Contact</h2>
+    			<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p>
+    		</div>
+
+    		<div class="row" data-aos="fade-up" data-aos-delay="100">
+
+    			<div class="col-lg-6">
+
+    				<div class="row">
+    					<div class="col-md-12">
+    						<div class="info-box">
+    							<i class="bx bx-map"></i>
+    							<h3>Our Address</h3>
+    							<p>Ethiopia Addis Ababa, Asmara Road</p>
+    						</div>
+    					</div>
+    					<div class="col-md-6">
+    						<div class="info-box mt-4">
+    							<i class="bx bx-envelope"></i>
+    							<h3>Email Us</h3>
+    							<p>info@yic.edu.et<br>contact@yic.edu.et</p>
+    						</div>
+    					</div>
+    					<div class="col-md-6">
+    						<div class="info-box mt-4">
+    							<i class="bx bx-phone-call"></i>
+    							<h3>Call Us</h3>
+    							<p>+251-11-6-460954<br>+251-11-6-478965</p>
+    						</div>
+    					</div>
+    				</div>
+
+    			</div>
+
+    			<div class="col-lg-6">
+    				<form action="forms/contact.php" method="post" role="form" class="php-email-form">
+    					<div class="form-row">
+    						<div class="col form-group">
+    							<input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+    							<div class="validate"></div>
+    						</div>
+    						<div class="col form-group">
+    							<input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+    							<div class="validate"></div>
+    						</div>
+    					</div>
+    					<div class="form-group">
+    						<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+    						<div class="validate"></div>
+    					</div>
+    					<div class="form-group">
+    						<textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+    						<div class="validate"></div>
+    					</div>
+    					<div class="mb-3">
+    						<div class="loading">Loading</div>
+    						<div class="error-message"></div>
+    						<div class="sent-message">Your message has been sent. Thank you!</div>
+    					</div>
+    					<div class="text-center"><button type="submit">Send Message</button></div>
+    				</form>
+    			</div>
+
+    		</div>
+
+    	</div>
+    </section><!-- End Contact Section -->
+  </main><!-- End #main -->
+
+

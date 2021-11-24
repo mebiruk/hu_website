@@ -1,0 +1,50 @@
+{:uriI"‚file:///var/lib/gems/2.7.0/gems/ckeditor_rails-4.16.3/vendor/assets/javascripts/ckeditor/plugins/exportpdf/tests/manual/notificationsasync.html?type=text/html&id=fae348662df9ad93faa4a701b1f95627f74777d041d62ff8f543bcbdebde6c0c:ET:load_pathI"M/var/lib/gems/2.7.0/gems/ckeditor_rails-4.16.3/vendor/assets/javascripts;T:filenameI"à/var/lib/gems/2.7.0/gems/ckeditor_rails-4.16.3/vendor/assets/javascripts/ckeditor/plugins/exportpdf/tests/manual/notificationsasync.html;T:	nameI"?ckeditor/plugins/exportpdf/tests/manual/notificationsasync;T:logical_pathI"Dckeditor/plugins/exportpdf/tests/manual/notificationsasync.html;T:content_typeI"text/html;T:sourceI"Í<div id="editor1">
+	<p>Export to PDF test 1.</p>
+</div>
+
+<div id="editor2">
+	<p>Export to PDF test 2.</p>
+</div>
+
+<script>
+	exportPdfUtils.initManualTest();
+
+	var editor1 = CKEDITOR.replace( 'editor1', exportPdfUtils.getDefaultConfig( 'manual' ) );
+
+	editor1.on( 'exportPdf', function( evt ) {
+		if ( !evt.data.asyncDone ) {
+			setTimeout( function() {
+				evt.data.html = '<p>Content filtered!</p>';
+				evt.data.asyncDone = true;
+
+				editor1.fire( 'exportPdf', evt.data );
+			}, 2000 );
+
+			evt.cancel();
+		} else {
+			delete evt.data.asyncDone;
+		}
+	}, null, null, 1 );
+
+	var editor2 = CKEDITOR.replace( 'editor2', exportPdfUtils.getDefaultConfig( 'manual' ) );
+
+	editor2.on( 'exportPdf', function( evt ) {
+		if ( !evt.data.asyncDone ) {
+			setTimeout( function() {
+				evt.data.html = '<p>Content filtered!</p>';
+				evt.data.asyncDone = true;
+
+				editor2.fire( 'exportPdf', evt.data );
+			}, 2000 );
+
+			evt.cancel();
+		} else {
+			delete evt.data.asyncDone;
+		}
+	}, null, null, 17 );
+</script>
+;T:metadata{	:dependencieso:Set:
+@hash}
+I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"ñfile-digest:///var/lib/gems/2.7.0/gems/ckeditor_rails-4.16.3/vendor/assets/javascripts/ckeditor/plugins/exportpdf/tests/manual/notificationsasync.html;TTF:charsetI"
+utf-8;F:digest"%µ⁄Û∆‹d…~mùOÓœ9x∏ˇJÅ˚§Èënêﬁ©¡\Ë:lengthiÍ:dependencies_digest"%	vÑ,ÒNîãc∆t'Gõ sÉgŸ!ëèËu4∞´ªJ:idI"Efae348662df9ad93faa4a701b1f95627f74777d041d62ff8f543bcbdebde6c0c;F:
+mtimel+©éña
