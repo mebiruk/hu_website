@@ -11,112 +11,83 @@
 
   		</div>
   	</section>
-  	<section id="departments" class="departments">
-  		<div class="container">
+  	<section id="tabs" class="tabs">
+      <div class="container" data-aos="fade-up">
 
-  			<div class="section-title">
-  				<h2>Our <%= @admission.admission_name%> Program</h2>
-  				<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit.</p>
-  			</div>
+        <ul class="nav nav-tabs row d-flex">
+          <li class="nav-item col-3">
+            <a class="nav-link show" href="#tab-10">
+              <h4 class="d-none d-lg-block">How to Apply</h4>
+            </a>
+          </li>
+          <li class="nav-item col-3">
+            <a class="nav-link" href="#tab-20">
+              <h4 class="d-none d-lg-block">Required Document</h4>
+            </a>
+          </li>
+          <li class="nav-item col-3">
+            <a class="nav-link" href="#tab-30">
+              <h4 class="d-none d-lg-block">Payment Process</h4>
+            </a>
+          </li>
+          <li class="nav-item col-3">
+            <a class="nav-link" href="#tab-40">
+              <h4 class="d-none d-lg-block">Useful Informations</h4>
+            </a>
+          </li>
+        </ul>
 
-  			<div class="row">
-  				<div class="col-lg-3">
-  					<ul class="nav nav-tabs flex-column">
-  						<li class="nav-item">
-  							<a class="nav-link active show" data-toggle="tab" href="#tab-12">How to Apply</a>
-  						</li>
-  						<li class="nav-item">
-  							<a class="nav-link" data-toggle="tab" href="#tab-22">Required Documents</a>
-  						</li>
-  						<li class="nav-item">
-  							<a class="nav-link" data-toggle="tab" href="#tab-32">Payment Process</a>
-  						</li>
-  						<li class="nav-item">
-  							<a class="nav-link" data-toggle="tab" href="#tab-42">Useful Informations</a>
-  						</li>
-              <!-- <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#tab-52">E-learning</a>
-              </li> -->
-            </ul>
+        <div class="tab-content">
+          <div class="tab-pane active show" id="tab-10">
+            <div class="row">
+              <div class="col-lg-8 order-2 order-lg-1 mt-5 ml-5 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
+                <%= @admission.how_to_apply.html_safe%>
+              </div>
+            </div>
           </div>
-          <div class="col-lg-9 mt-4 mt-lg-0">
-          	<div class="tab-content">
-          		<div class="tab-pane active show" id="tab-12">
-          			<div class="row">
-          				<div class="col-lg-8 details order-2 order-lg-1">
-          					<h3>How to Apply</h3>
-          					<p><%= @admission.how_to_apply.html_safe%></p>
-          				</div>
-          				<div class="col-lg-4 text-center order-1 order-lg-2">
-          					<img src="assets/img/departments-1.jpg" alt="" class="img-fluid">
-          				</div>
-          			</div>
-          		</div>
-          		<div class="tab-pane" id="tab-22">
-          			<div class="row">
-          				<div class="col-lg-8 details order-2 order-lg-1">
-          					<h3>Required Documents</h3>
-          					<p><%= @admission.required_document.html_safe%></p>
-          				</div>
-          				<div class="col-lg-4 text-center order-1 order-lg-2">
-          					<img src="assets/img/departments-2.jpg" alt="" class="img-fluid">
-          				</div>
-          			</div>
-          		</div>
-          		<div class="tab-pane" id="tab-32">
-          			<div class="row">
-          				<div class="col-lg-8 details order-2 order-lg-1">
-          					<h3>Payment Process</h3>
-          					<p><%= @admission.payment_process.html_safe%></p>
-          				</div>
-          				<div class="col-lg-4 text-center order-1 order-lg-2">
-          					<img src="assets/img/departments-3.jpg" alt="" class="img-fluid">
-          				</div>
-          			</div>
-          		</div>
-          		<div class="tab-pane" id="tab-42">
-          			<div class="row">
-          				<div class="col-lg-8 details order-2 order-lg-1">
-          					<h3>Useful Informations</h3>
-          					<p><%= @admission.useful_information.html_safe%></p>
-          				</div>
-          				<div class="col-lg-4 text-center order-1 order-lg-2">
-          					<img src="assets/img/departments-4.jpg" alt="" class="img-fluid">
-          				</div>
-          			</div>
-          		</div>
-          	</div>
+          <div class="tab-pane" id="tab-20">
+            <div class="row">
+              <div class="col-lg-8 ml-4 order-2 order-lg-1 mt-5 mt-lg-0">
+                <%= @admission.required_document.html_safe%>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="tab-30">
+            <div class="row">
+              <div class="col-lg-8 order-2 order-lg-1 mt-3 mt-lg-0">
+                <%= @admission.payment_process.html_safe%>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="tab-40">
+            <div class="row">
+              <div class="col-lg-8 order-2 order-lg-1 mt-3 mt-lg-0">
+                <%= @admission.useful_information.html_safe%>
+            </div>
           </div>
         </div>
 
       </div>
     </section>
-    <section id="recent-blog-posts" class="recent-blog-posts">
 
-    	<div class="container aos-init aos-animate" >
-
-    		<header class="section-header mb-3" data-aos="zoom-in">
-    			<h2>Programs</h2>
-    			<p>Our <%= @admission.admission_name%> Program</p>
-    		</header>
-
-    		<div class="row">
-    			<%Program.where(study_level: @admission.study_level).where(modality: @admission.modality).each do |pro|%>
-	    			<div class="col-lg-3" style="padding-right: 5px;">
-	   					<div class="post-box bg-white">
-	   						<div class="post-img"><%= image_tag pro.photo, class: "img-fluid"%></div>
-
-	   						<h3 class="post-title"><%= pro.program_name%></h3>
-	   						<span class="post-date"><strong>modality:- <%= pro.modality%> </strong></span>
-	   						<span class="post-date mb-4"><%= pro.overview%> .</span>
-	   						<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
-	   					</div>
-	   				</div>
-	    		<%end%>
-    		</div>
-
-    	</div>
-
+	<section id="services" class="services">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Programs</h2>
+          <h3>Check our <%= @admission.admission_name%></h3>
+        </div>
+        <div class="row">
+			<%Program.where(study_level: @admission.study_level).where(modality: @admission.modality).each do |pro|%>
+				<div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+					<div class="icon-box">
+						<h4><a href=""><%= pro.program_name%></a></h4>
+						<p><%= pro.program_description%></p>
+						<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
+					</div>
+				</div>
+			<% end %>
+        </div>
+      </div>
     </section>
 
     <!-- ======= Marketing Headline ======= -->

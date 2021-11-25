@@ -11,45 +11,47 @@
       </div>
     </section>
 
-    
-    <!-- ======= Counts Section ======= -->
-    <section id="counts" class="counts counts-bg">
-      <div class="container">
+    <section id="counts" class="counts">
+      <div class="container" data-aos="fade-up">
 
-        <div class="row justify-content-end">
+        <div class="row">
 
-          <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+          <div class="col-lg-3 col-md-6">
             <div class="count-box">
-              <span data-purecounter-start="0" data-purecounter-end="65" data-purecounter-duration="0" class="purecounter" style="color:#fcdb03"><%= Time.now.year - @college.establishment_date.year %></span>
-              <p><strong>Years of experience</strong></p>
+              <i class="bi bi-emoji-smile"></i>
+              <span data-purecounter-start="0" data-purecounter-end="342" data-purecounter-duration="1" class="purecounter"><%= Time.now.year - @college.establishment_date.year %></span>
+              <p>Years of experience</p>
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+          <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
             <div class="count-box">
-              <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="0" class="purecounter" style="color:#fcdb03"><%= @college.number_of_prorgam%></span>
-              <p><strong>Programs</strong></p>
+              <i class="bi bi-journal-richtext"></i>
+              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"><%= @college.number_of_prorgam%></span>
+              <p>Programs</p>
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
             <div class="count-box">
-              <span data-purecounter-start="0" data-purecounter-end="30" data-purecounter-duration="0" class="purecounter" style="color:#fcdb03"><%= @college.distance_center%></span>
-              <p><strong>Distance Centers</strong></p>
+              <i class="bi bi-headset"></i>
+              <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"><%= @college.distance_center%></span>
+              <p>Distance Centers</p>
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
             <div class="count-box">
-              <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="0" class="purecounter" style="color:#fcdb03"><%= @college.student_enrolled%></span>
-              <p><strong>Enrolled Students</strong></p>
+              <i class="bi bi-people"></i>
+              <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"><%= @college.student_enrolled%></span>
+              <p>Enrolled Students</p>
             </div>
           </div>
 
         </div>
 
       </div>
-    </section><!-- End Counts Section -->
+    </section>
     
     <!-- ======= Tabs Section ======= -->
     <section id="tabs" class="tabs">
@@ -57,78 +59,68 @@
 
         <ul class="nav nav-tabs row d-flex">
           <li class="nav-item col-3">
-            <a class="nav-link active show" data-toggle="tab" href="#tab-1">
-              <i class="ri-gps-line"></i>
+            <a class="nav-link show" href="#tab-10">
               <h4 class="d-none d-lg-block">Overview</h4>
             </a>
           </li>
           <li class="nav-item col-3">
-            <a class="nav-link" data-toggle="tab" href="#tab-2">
-              <i class="ri-body-scan-line"></i>
+            <a class="nav-link" href="#tab-20">
               <h4 class="d-none d-lg-block">History</h4>
             </a>
           </li>
           <li class="nav-item col-3">
-            <a class="nav-link" data-toggle="tab" href="#tab-3">
-              <i class="ri-sun-line"></i>
+            <a class="nav-link" href="#tab-30">
               <h4 class="d-none d-lg-block">Mission & Vision</h4>
             </a>
           </li>
           <li class="nav-item col-3">
-            <a class="nav-link" data-toggle="tab" href="#tab-4">
-              <i class="ri-store-line"></i>
+            <a class="nav-link" href="#tab-40">
               <h4 class="d-none d-lg-block">Mandate</h4>
             </a>
           </li>
         </ul>
 
         <div class="tab-content">
-          <div class="tab-pane active show" id="tab-1">
+          <div class="tab-pane active show" id="tab-10">
             <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
-                <%= @college.overview%>
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
-                <img src="https://lms.yic.edu.et/pluginfile.php/1/theme_moove/sliderimage1/1631710258/%28A%29---1500%20x%20700%20pixel%20for%20front%20page%20header%20image-01.png" alt="" class="img-fluid">
+              <div class="col-lg-8 order-2 order-lg-1 mt-5 ml-5 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
+                <%= @college.overview.html_safe%>
               </div>
             </div>
           </div>
-          <div class="tab-pane" id="tab-2">
+          <div class="tab-pane" id="tab-20">
             <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <%= @college.history%>
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="https://lms.yic.edu.et/pluginfile.php/1/theme_moove/sliderimage1/1631710258/%28A%29---1500%20x%20700%20pixel%20for%20front%20page%20header%20image-01.png" alt="" class="img-fluid">
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane" id="tab-3">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+              <div class="col-lg-8 ml-4 order-2 order-lg-1 mt-5 mt-lg-0">
                 <%= @college.mission.html_safe%>
-                <br>
                 <%= @college.vision.html_safe%>
               </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="https://lms.yic.edu.et/pluginfile.php/1/theme_moove/sliderimage1/1631710258/%28A%29---1500%20x%20700%20pixel%20for%20front%20page%20header%20image-01.png" alt="" class="img-fluid">
+            </div>
+          </div>
+          <div class="tab-pane" id="tab-30">
+            <div class="row">
+              <div class="col-lg-8 order-2 order-lg-1 mt-3 mt-lg-0">
+                <%= @college.history.html_safe%>
               </div>
             </div>
           </div>
-          <div class="tab-pane" id="tab-4">
+          <div class="tab-pane" id="tab-40">
             <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <%= @college.mandate%>
+              <div class="col-lg-8 order-2 order-lg-1 mt-3 mt-lg-0">
+                <%= @college.mandate.html_safe%>
             </div>
           </div>
         </div>
 
       </div>
     </section><!-- End Tabs Section -->
+
     <section id="about" class="about section-bg">
       <div class="container" data-aos="fade-up">
         <div class="row no-gutters">
           <% @staff.where(job_title: 'PRESIDENT').each do |s|%>
+            <div class="col-xl-6 d-flex align-items-stretch mt-5" >
+              <%= image_tag s.photo, size: "466x350", style: "margin-top: 100px;" %>
+            </div>
             <div class="content col-xl-6 d-flex align-items-stretch">
               <div class="content">
                 <h3>PRESIDENTS MESSAGE</h3>
@@ -140,9 +132,6 @@
                 </p>
               </div>
             </div>
-            <div class="col-xl-6 d-flex align-items-stretch mt-5" >
-              <%= image_tag s.photo, size: "466x350", style: "margin-top: 100px;" %>
-            </div>
           <%end%>
       </div>
     </div>
@@ -150,78 +139,52 @@
   
 </section>
 <!-- ======= Departments Section ======= -->
-<section id="departments" class="departments">
-  <div class="container">
-
-    <div class="section-title">
-      <h2>Our Services</h2>
-      <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-3">
-        <ul class="nav nav-tabs flex-column" id="portfolio-flters">
-            <% @service.each do |s|%>
-              <li class="nav-item filter-active" data-filter=".<%= s.id%>">
-                <a class="nav-link show"><%= s.service_name%></a>
-              </li>
-            <%end%>          
-        </ul>
-      </div>
-      <div class="col-lg-9 mt-4 mt-lg-0">
-        <div class="tab-content portfolio-container">
+  <section id="featured-services" class="featured-services">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Services</h2>
+          <h3>Check our <span>Services</span></h3>
+        </div>
+        <div class="row">
           <% @service.each do |s|%>
-            <div class="tab-pane active show portfolio-item <%= s.id%>">
-              <div class="row portfolio-wrap">
-                <div class="col-lg-8 details order-2 order-lg-1 portfolio-info">
-                    <h3><%= s.service_name%></h3>
-                    <p class="font-italic"><%= s.service_overview%></p>
-                    <p><%= s.details.html_safe%></p>                  
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+              <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                <h4 class="title"><a href=""><%= s.service_name%></a></h4>
+                <p class="description"><%= s.service_overview.html_safe%></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </section>
+
+<section id="team" class="team section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>HU Leadership Team</h2>
+        </div>
+
+        <div class="row">
+          <% @staff.where.not(job_title: 'PRESIDENT').where.not(job_title: 'Vice PRESIDENT').each do |s|%>
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+              <div class="member">
+                <div class="member-img">
+                  <%= image_tag s.photo, class: "img-fluid" %>
+                </div>
+                <div class="member-info">
+                  <h4><%= s.fullname%></h4>
+                  <span><%= s.job_title%></span>
                 </div>
               </div>
             </div>
-          <%end%> 
+          <% end %>
+
         </div>
+
       </div>
-    </div>
-
-  </div>
-</section><!-- End Departments Section -->
-<!-- ======= Team Section ======= -->
-<section id="team" class="team section-bg">
-  <div class="container" data-aos="fade-up">
-
-    <div class="section-title">
-      <h2>YIC Leadership</h2>
-      <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p>
-    </div>
-
-    <div class="row">
-
-      <% @staff.where.not(job_title: 'PRESIDENT').where.not(job_title: 'Vice PRESIDENT').each do |s|%>
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-        <div class="member" data-aos="fade-up" data-aos-delay="100">
-          <div class="member-img">
-            <%= image_tag s.photo, size: "400x300"%>
-            <div class="social">
-              <a href=""><i class="icofont-twitter"></i></a>
-              <a href=""><i class="icofont-facebook"></i></a>
-              <a href=""><i class="icofont-instagram"></i></a>
-              <a href=""><i class="icofont-linkedin"></i></a>
-            </div>
-          </div>
-          <div class="member-info">
-            <h4><%= s.fullname%></h4>
-            <span><%= s.job_title%></span>
-          </div>
-          </div>
-        </div>
-      <%end%>
-    
-    </div>
-
-  </div>
-</section>
+    </section>
 <!-- End Team Section -->
 
 <!-- ======= Portfolio Section ======= -->
@@ -230,7 +193,6 @@
 
     <div class="section-title">
       <h2>Accreditations</h2>
-      <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p>
     </div>
 
       	<div class="row" data-aos="fade-up" data-aos-delay="100">

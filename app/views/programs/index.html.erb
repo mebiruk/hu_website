@@ -11,33 +11,24 @@
       </div>
     </section>
     
-    <section id="recent-blog-posts" class="recent-blog-posts">
-
-      <div class="container aos-init aos-animate" data-aos="fade-up">
-
-        <header class="section-header">
-          <!-- <h2>Programs</h2> -->
-          <p>Our Degree Programs</p>
-        </header>
-
-        <div class="row">
-          <%Program.where(study_level: 'undergraduate').each do |pro|%>
-	    			<div class="col-lg-3" style="padding-right: 5px;">
-	   					<div class="post-box bg-white">
-	   						<div class="post-img"><%= image_tag pro.photo, class: "img-fluid"%></div>
-
-	   						<h3 class="post-title"><%= pro.program_name%></h3>
-	   						<span class="post-date"><strong>modality:- <%= pro.modality%> </strong></span>
-	   						<span class="post-date mb-4"><%= pro.overview.html_safe%> .</span>
-	   						<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
-	   					</div>
-	   				</div>
-	    		<%end%>
+  	<section id="services" class="services">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h3>Check our <span>Our Degree Program</span></h3>
+          </div>
+          <div class="row">
+        <%Program.where(study_level: 'undergraduate').each do |pro|%>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <h4><a href=""><%= pro.program_name%></a></h4>
+              <p><%= pro.program_description%></p>
+              <%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
+            </div>
+          </div>
+        <% end %>
+          </div>
         </div>
-
-      </div>
-
-    </section>
+      </section>
     
     <!-- ======= Marketing Headline ======= -->
     <section id="cta" class="cta">
@@ -52,35 +43,24 @@
       </div>
     </section> <!-- End Marketing -->
     
-    <section id="recent-blog-posts" class="recent-blog-posts">
-
-      <div class="container aos-init aos-animate" data-aos="fade-up">
-
-        <header class="section-header">
-          <!-- <h2>Programs</h2> -->
-          <p>Our Masters Programs</p>
-        </header>
-
-        <div class="row">
-
-          <%Program.where(study_level: 'graduate').each do |pro|%>
-	    			<div class="col-lg-3" style="padding-right: 5px;">
-	   					<div class="post-box bg-white">
-	   						<div class="post-img"><%= image_tag pro.photo, class: "img-fluid"%></div>
-
-	   						<h3 class="post-title"><%= pro.program_name%></h3>
-	   						<span class="post-date"><strong>modality:- <%= pro.modality%> </strong></span>
-	   						<span class="post-date mb-4"><%= pro.overview.html_safe%> .</span>
-	   						<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
-	   					</div>
-	   				</div>
-	    		<%end%>
-
+    <section id="services" class="services">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h3>Check our <span>Our Masters Program</span></h3>
+          </div>
+          <div class="row">
+        <%Program.where(study_level: 'graduate').each do |pro|%>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <h4><a href=""><%= pro.program_name%></a></h4>
+              <p><%= pro.program_description%></p>
+              <%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
+            </div>
+          </div>
+        <% end %>
+          </div>
         </div>
-
-      </div>
-
-    </section>
+      </section>
     
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
