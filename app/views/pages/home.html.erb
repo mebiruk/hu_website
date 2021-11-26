@@ -14,17 +14,19 @@
       <div class="container" data-aos="fade-up">
         <div class="section-title">
           <h3>Our <span>Admission Types</span></h3>
-		  <p>We have more than <%= Time.now.year - @college.establishment_date.year%> expriance on education sector. currently we have <%= @college.number_of_prorgam%> number of programs</p>
+		      <p>We have more than <%= Time.now.year - @college.establishment_date.year%> expriance on education sector. currently we have <%= @college.number_of_prorgam%> number of programs</p>
         </div>
         <div class="row">
-			<% @admissions.each do |admission| %>
-				<div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-					<div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-						<h4 class="title"><a href="admissions/<%= admission.id%>"><%= admission.admission_name %></a></h4>
-           		    	<p class="description"><%= admission.modality %> <%= admission.study_level%></p>
-					</div>
-				</div>
-			<% end %>     
+          <% if @admissions != nil %>
+            <% @admissions.each do |admission| %>
+              <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+                <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                  <h4 class="title"><a href="admissions/<%= admission.id%>"><%= admission.admission_name %></a></h4>
+                    <p class="description"><%= admission.modality %> <%= admission.study_level%></p>
+                </div>
+              </div>
+            <% end %>
+          <% end %>     
         </div>
       </div>
     </section>
@@ -48,15 +50,17 @@
           <h3>Check our <span>Our Degree Program</span></h3>
         </div>
         <div class="row">
-			<%Program.where(study_level: 'undergraduate').each do |pro|%>
-				<div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
-					<div class="icon-box">
-						<h4><a href=""><%= pro.program_name%></a></h4>
-						<p><%= pro.program_description%></p>
-						<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
-					</div>
-				</div>
-			<% end %>
+          <% if Program.where(study_level: 'undergraduate') != nil %>
+            <%Program.where(study_level: 'undergraduate').each do |pro|%>
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                  <h4><a href=""><%= pro.program_name%></a></h4>
+                  <p><%= pro.program_description%></p>
+                  <%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </section>
@@ -67,15 +71,17 @@
           <h3>Check our <span>Our Masters Program</span></h3>
           </div>
         <div class="row">
-			<%Program.where(study_level: 'graduate').each do |pro|%>
-				<div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
-					<div class="icon-box">
-						<h4><a href=""><%= pro.program_name%></a></h4>
-						<p><%= pro.program_description%></p>
-						<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
-					</div>
-				</div>
-			<% end %>
+        <% if Program.where(study_level: 'graduate') != nil %>
+			    <%Program.where(study_level: 'graduate').each do |pro|%>
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+              <div class="icon-box">
+                <h4><a href=""><%= pro.program_name%></a></h4>
+                <p><%= pro.program_description%></p>
+                <%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
+              </div>
+            </div>
+			    <% end %>
+        <% end %>
         </div>
       </div>
     </section>
@@ -91,7 +97,7 @@
           <div class="col-lg-10 pl-3" data-aos="fade-right" data-aos-delay="100">
    			<p class="fst-italic">
             	<h3><%= Time.now.year - @college.establishment_date.year %> Years Of Academic Services</h3>
-   				<%= @college.overview %>
+   				    <%= @college.overview %>
    			</p>
           </div>
 		  <div class="row">
@@ -123,17 +129,19 @@
     			<h2>Latest News & Events</h2>
     		</header>
     		<div class="row">
-    			<% @news.each do |n|%>
-					<div class="col-lg-4">
-					<div class="post-box">
-						<div class="post-img"><%= image_tag n.photo %></div>
-						<span class="post-date"><%= n.created_at%></span>
-						<h3 class="post-title"><%= n.news_title %></h3>
-						<p><%= n.overview%></p>
-						<a href="news.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-					</div>
-					</div>
-				<% end %>
+          <% if @news != nil %>
+            <% @news.each do |n|%>
+              <div class="col-lg-4">
+                <div class="post-box">
+                  <div class="post-img"><%= image_tag n.photo %></div>
+                  <span class="post-date"><%= n.created_at%></span>
+                  <h3 class="post-title"><%= n.news_title %></h3>
+                  <p><%= n.overview%></p>
+                  <a href="news.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
     		</div>
 
     	</div>
