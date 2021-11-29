@@ -1,16 +1,4 @@
   <main id="main">
-  	<section class="breadcrumbs">
-  		<div class="container">
-
-  			<ol>
-  				<li><a href="index.html">Home</a></li>
-  				<li>Accreditations</li>
-  			</ol>
-  			<h2>Our Accreditations</h2>
-
-  		</div>
-  	</section>
-  	<!-- ======= Portfolio Section ======= -->
   	<section id="portfolio" class="portfolio">
   		<div class="container" data-aos="fade-up">
 
@@ -31,27 +19,27 @@
   			</div>
 
   			<div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-          <% @accreditations.each do |a|%>
-    				<div class="col-lg-4 col-md-6 portfolio-item <%= a.modality%>">
-    					<div class="portfolio-wrap">
-							<% if a.accreditation_documents[0].blank? %>
-								<div class="portfolio-info">
-									<h4>Data Not Found</h4>
-								</div>
-							<% else %>
-								<%= image_tag a.accreditation_documents[0], class: "img-fluid"%>
-								<div class="portfolio-info">
-									<h4><%= a.accreditation_title%></h4>
-									<p><%= a.modality%></p>
-									<div class="portfolio-links">
-										<%= link_to '<i class="bx bx-plus"></i>'.html_safe, a.accreditation_documents[0], {'data-gall': "portfolioGallery",class: "venobox", title: a.accreditation_title}%>
+					<% @accreditations.each do |a|%>
+						<div class="col-lg-4 col-md-6 portfolio-item <%= a.modality%>">
+							<div class="portfolio-wrap">
+								<% if a.accreditation_documents[0].blank? %>
+									<div class="portfolio-info">
+										<h4>Data Not Found</h4>
 									</div>
-								</div>
-							<% end %>
-    					</div>
-    				</div>
-          <%end%>
-
+								<% else %>
+									<%= image_tag a.accreditation_documents[0], class: "img-fluid"%>
+									<div class="portfolio-info">
+										<h4><%= a.accreditation_title%></h4>
+										<p><%= a.modality%></p>
+										<div class="portfolio-links">
+											<%= link_to '<i class="bx bx-plus"></i>'.html_safe, a.accreditation_documents[0], {'data-gall': "portfolioGallery",class: "venobox", title: a.accreditation_title}%>
+										</div>
+									</div>
+								<% end %>
+							</div>
+						</div>
+					<%end%>
+	
   				<!-- <div class="col-lg-4 col-md-6 portfolio-item filter-web">
   					<div class="portfolio-wrap">
   						<%= image_tag "a1.jpg", class: "img-fluid"%>

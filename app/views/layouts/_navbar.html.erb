@@ -9,20 +9,10 @@
         <nav class="nav-menu d-none d-lg-block mr-lg-5">
           <ul>
             <li class="active"><%= link_to "Home", root_path%></li>
-            <!-- <li><a href="#about">Admission</a></li> -->
-            <li class="drop-down"><%= link_to "Admission", "#"%>
-              <ul>
-                <% Admission.all.each do |admission|%>
-                  <li><%= link_to("#{admission.admission_name}", {controller: "admissions", action: "show", id: admission.id} )%></li>
-                <%end%>
-              </ul>
-            </li>
-            <li><%= link_to "News&Event", news_index_path%></li>
-            <li><%= link_to "Accreditation", accreditation_path%></li>
-            <li><%= link_to "About", about_path%> </li>
             <li><%= link_to "Progams", programs_path%></li>
-            <li><%= link_to "Almunis", almunis_path%></li>              
-            <li><%= link_to "Contact us", contact_path%></li>
+            <li><%= link_to "About", about_path%> </li>
+            <li><%= link_to "Almunis", almunis_path%></li>
+            <li><%= link_to "News", news_index_path%></li>  
             </ul>
           </nav><!-- .nav-menu -->
 

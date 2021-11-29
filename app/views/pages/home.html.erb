@@ -9,7 +9,30 @@
     </div>
   </section>
 
-   <main id="main">
+
+<main id="main">
+
+	<section id="services" class="services">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h3>Check our <span>Our Degree Program</span></h3>
+        </div>
+        <div class="row">
+          <% if Program.where(study_level: 'undergraduate') != nil %>
+            <%Program.where(study_level: 'undergraduate').each do |pro|%>
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+                <div class="icon-box">
+                  <h4><a href=""><%= pro.program_name%></a></h4>
+                  <p><%= pro.program_description%></p>
+                  <%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </section>
+
 	<section id="featured-services" class="featured-services">
       <div class="container" data-aos="fade-up">
         <div class="section-title">
@@ -31,41 +54,7 @@
       </div>
     </section>
 
-   	<section id="cta" class="cta" data-aos="zoom-in" data-aos-delay="100">
-   		<div class="container aos-init aos-animate " data-aos="zoom-in">
-			<% @marketing.where(page_to_display: 'home').each do |m|%>
-				<div class="text-center">
-					<h3><%= m.headline_title%></h3>
-					<p><%= m.description%></p>
-					<a class="cta-btn" href="<%= m.action%>">Learn more</a>
-				</div>
-			<% end %>
-   		</div>
-   	</section>
-
-	<section id="services" class="services">
-      <div class="container" data-aos="fade-up">
-        <div class="section-title">
-          <h2>Programs</h2>
-          <h3>Check our <span>Our Degree Program</span></h3>
-        </div>
-        <div class="row">
-          <% if Program.where(study_level: 'undergraduate') != nil %>
-            <%Program.where(study_level: 'undergraduate').each do |pro|%>
-              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
-                <div class="icon-box">
-                  <h4><a href=""><%= pro.program_name%></a></h4>
-                  <p><%= pro.program_description%></p>
-                  <%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    </section>
-
-	<section id="services" class="services">
+    	<section id="services" class="services">
       <div class="container" data-aos="fade-up">
         <div class="section-title">
           <h3>Check our <span>Our Masters Program</span></h3>
@@ -85,6 +74,18 @@
         </div>
       </div>
     </section>
+
+   	<section id="cta" class="cta" data-aos="zoom-in" data-aos-delay="100">
+   		<div class="container aos-init aos-animate " data-aos="zoom-in">
+			<% @marketing.where(page_to_display: 'home').each do |m|%>
+				<div class="text-center">
+					<h3><%= m.headline_title%></h3>
+					<p><%= m.description%></p>
+					<a class="cta-btn" href="<%= m.action%>">Learn more</a>
+				</div>
+			<% end %>
+   		</div>
+   	</section>
 
 	<section id="about" class="about section-bg">
       <div class="container" data-aos="fade-up">
@@ -121,38 +122,13 @@
       </div>
     </section><!-- End About Section -->
 
-    <section id="recent-blog-posts" class="recent-blog-posts">
 
-    	<div class="container aos-init aos-animate" data-aos="fade-up">
-
-    		<header class="section-header">
-    			<h2>Latest News & Events</h2>
-    		</header>
-    		<div class="row">
-          <% if @news != nil %>
-            <% @news.each do |n|%>
-              <div class="col-lg-4">
-                <div class="post-box">
-                  <div class="post-img"><%= image_tag n.photo %></div>
-                  <span class="post-date"><%= n.created_at%></span>
-                  <h3 class="post-title"><%= n.news_title %></h3>
-                  <p><%= n.overview%></p>
-                  <a href="news.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-    		</div>
-
-    	</div>
-
-    </section>
 
     <!-- ======= Testimonials Section ======= -->
 	<section id="testimonials" class="testimonials">
       <div class="container" data-aos="zoom-in">
 	    	<div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
-    			<div class="col-xl-10">
+    			<div class="col-xl-12">
     				<div class="owl-carousel testimonials-carousel">
 						<% @comment.where(display_on_home_page: true).each do |c|%>
 							<div class="testimonial-wrap">
@@ -179,7 +155,6 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Contact</h2>
           <h3><span>Contact Us</span></h3>
           <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
         </div>

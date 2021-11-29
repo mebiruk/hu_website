@@ -1,53 +1,26 @@
-  <main id="main">
-    <section class="breadcrumbs">
-  		<div class="container">
+    <section id="recent-blog-posts" class="recent-blog-posts">
 
-        <ol>
-          <li><a href="index.html">Home</a></li>
-          <li>News & Events</li>
-        </ol>
-        <h2>News & Events</h2>
+    	<div class="container aos-init aos-animate" data-aos="fade-up">
 
-  		</div>
-  	</section>
-
-    <section id="blog" class="blog">
-      <div class="container" data-aos="fade-up">
-        <div class="row">
-          <div class="col-lg-8 entries">
-          <% @news.each do |n|%>
-            <article class="entry">
-              <h2 class="entry-title">
-                <div style= "color :#0975b8"><%= n.overview.html_safe%></div>
-              </h2>
-			        <br>
-			        <div class="entry-img">
-                <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
+    		<header class="section-header">
+    			<h2>Latest News & Events</h2>
+    		</header>
+    		<div class="row">
+          <% if @news != nil %>
+            <% @news.each do |n|%>
+              <div class="col-lg-4">
+                <div class="post-box">
+                  <div class="post-img"><%= image_tag n.photo %></div>
+                  <span class="post-date"><%= n.created_at%></span>
+                  <h3 class="post-title"><%= n.news_title %></h3>
+                  <p><%= n.overview%></p>
+                  <%= link_to "Read More", news_path(n.id), class: "readmore stretched-link mt-auto"%>
+                </div>
               </div>
-              <div class="entry-meta">
-                <ul>
-                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="blog-single.html"><%= n.published_by%></a></li>
-                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01"><%= n.created_at%></time></a></li>               
-                </ul>
-              </div>
-              <div class="entry-content">
-                <p><%= n.body.html_safe%></p>  
-              </div>
-            </article>
+            <% end %>
           <% end %>
-            <div class="blog-pagination">
-              <ul class="justify-content-center">
-                <li class="disabled"><i class="icofont-rounded-left"></i></li>
-                <li><a href="#">1</a></li>
-                <li class="active"><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#"><i class="icofont-rounded-right"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
+    		</div>
 
-      </div>
+    	</div>
+
     </section>
-    </main>
-

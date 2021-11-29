@@ -1,4 +1,31 @@
-<p id="notice"><%= notice %></p>
+  <main id="main">
 
-<%= link_to 'Edit', edit_news_path(@news) %> |
-<%= link_to 'Back', news_index_path %>
+    <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-8 entries">
+            <article class="entry">
+              <h2 class="entry-title">
+                <div style= "color :#0975b8"><%= @news.overview.html_safe%></div>
+              </h2>
+			        <br>
+			        <div class="entry-img">
+                <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
+              </div>
+              <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="blog-single.html"><%= @news.published_by%></a></li>
+                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01"><%= @news.created_at%></time></a></li>               
+                </ul>
+              </div>
+              <div class="entry-content">
+                <p><%= @news.body.html_safe%></p>  
+              </div>
+            </article>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    </main>
+
