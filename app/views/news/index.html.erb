@@ -1,26 +1,36 @@
-    <section id="recent-blog-posts" class="recent-blog-posts">
-
-    	<div class="container aos-init aos-animate" data-aos="fade-up">
-
-    		<header class="section-header">
-    			<h2>Latest News & Events</h2>
-    		</header>
-    		<div class="row">
-          <% if @news != nil %>
-            <% @news.each do |n|%>
-              <div class="col-lg-4">
-                <div class="post-box">
-                  <div class="post-img"><%= image_tag n.photo %></div>
-                  <span class="post-date"><%= n.created_at%></span>
-                  <h3 class="post-title"><%= n.news_title %></h3>
-                  <p><%= n.overview%></p>
-                  <%= link_to "Read More", news_path(n.id), class: "readmore stretched-link mt-auto"%>
-                </div>
+    <section id="blog" class="blog-mf sect-pt4 route mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 mt-5">
+            <div class="section-title">
+              <h2>
+                Latest News
+              </h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+        <% @news.each do |n|%>
+          <div class="col-md-4">
+            <div class="card card-blog">
+              <div class="card-img">
+                <a href=""><%= image_tag n.photo, class: "img-fluid" %></a>
               </div>
-            <% end %>
-          <% end %>
-    		</div>
-
-    	</div>
-
+              <div class="card-body">
+                <div class="card-category-box">
+                  <div class="card-category">
+                    <h6 class="category"><%= n.created_at %></h6>
+                  </div>
+                </div>
+                <h3 class="card-title"><a href=""><%= n.news_title %></a></h3>
+                <p class="card-description">
+                  <%= n.overview %>
+                </p>
+                <%= link_to "Read More", news_path(n.id), class: "readmore stretched-link mt-auto"%>
+              </div>
+            </div>
+          </div>
+        <% end %>  
+        </div>
+      </div>
     </section>

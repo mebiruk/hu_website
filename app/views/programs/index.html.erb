@@ -1,55 +1,77 @@
-  <main id="main">
+<main id="main" class="mt-5">
+ 
+     
+      <section id="courses" class="courses">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title mt-5">
+            <h2>Our Degree Programs</h2>
+        </div><!-- End Breadcrumbs -->
 
-  	<section id="services" class="services">
-        <div class="container" data-aos="fade-up">
-          <div class="section-title">
-            <h3>Check our <span>Our Degree Program</span></h3>
-          </div>
-          <div class="row">
-        <%Program.where(study_level: 'undergraduate').each do |pro|%>
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box">
-              <h4><a href=""><%= pro.program_name%></a></h4>
-              <p><%= pro.program_description%></p>
-              <%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+         <%Program.where(study_level: 'undergraduate').each do |pro|%>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="course-item">
+            <%= image_tag pro.photo, class: "img-fluid" %>
+              <div class="course-content">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h4><%= pro.modality%></h4>
+                </div>
+                  
+           
+                  <h3><%= pro.program_name %></h3>
+                <%= pro.program_description%> 
+                
+                <div class="trainer d-flex justify-content-between align-items-center">
+                   <%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
+                </div>
             </div>
-          </div>
-        <% end %>
-          </div>
+
+            </div>
+          </div> 
+                  <% end %>
+
         </div>
-      </section>
-    
-    <!-- ======= Marketing Headline ======= -->
-    <section id="cta" class="cta">
-      <div class="container aos-init aos-animate " data-aos="zoom-in">
-        <% @marketing.where(page_to_display: 'programs').each do |m|%>
-          <div class="text-center">
-            <h3><%= m.headline_title%></h3>
-            <p><%= m.description%></p>
-            <a class="cta-btn" href="<%= m.action%>">Learn more</a>
-          </div>
-        <% end %>
+
       </div>
-    </section> <!-- End Marketing -->
-    
-    <section id="services" class="services">
-        <div class="container" data-aos="fade-up">
-          <div class="section-title">
-            <h3>Check our <span>Our Masters Program</span></h3>
-          </div>
-          <div class="row">
-        <%Program.where(study_level: 'graduate').each do |pro|%>
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box">
-              <h4><a href=""><%= pro.program_name%></a></h4>
-              <p><%= pro.program_description%></p>
-              <%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
-            </div>
-          </div>
-        <% end %>
-          </div>
-        </div>
       </section>
+    
+    <!-- ======= Contact Section ======= -->
+ 
+      <div class="section-title">
+        <h2>Our Master Programs</h2>
+      </div>
+      <section id="courses" class="courses">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
+         <%Program.where(study_level: 'graduate').each do |pro|%>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="course-item">
+            <%= image_tag pro.photo, class: "img-fluid" %>
+              <div class="course-content">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h4><%= pro.modality%></h4>
+                </div>
+                  
+           
+                  <h3><%= pro.program_name %></h3>
+                <%= pro.program_description%> 
+                
+                <div class="trainer d-flex justify-content-between align-items-center">
+                   <%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
+                </div>
+            </div>
+
+            </div>
+          </div> 
+                  <% end %>
+
+        </div>
+
+      </div>
+    </section>
+    <!-- End Courses Section -->
+
     
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">

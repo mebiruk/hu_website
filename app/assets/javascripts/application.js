@@ -31,6 +31,19 @@
 //= require validate.js
 //= require main.js
 //= require noframework.waypoints.js
+//= require jquery3
+//= require popper
+//= require bootstrap
+//= require rails-ujs
+//= require activestorage
+//= require turbolinks
+//= require jquery.easing.min.js
+//= require owl.carousel.min.js
+//= require jquery.waypoints.min.js
+//= require counterup.min.js
+//= require isotope.pkgd.min.js
+//= require venobox.min.js
+//= require aos.js
 
 $(document).on('turbolinks:load', function(){
   // Smooth scroll for the navigation menu and links with .scrollto classes

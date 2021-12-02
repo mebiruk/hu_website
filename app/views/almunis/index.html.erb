@@ -1,50 +1,38 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
   <main id="main">
-    
-    <section id="recent-blog-posts" class="recent-blog-posts">
 
-      <div class="container aos-init aos-animate" data-aos="fade-up">
-
-        <header class="section-header">
-          <!-- <h2>Programs</h2> -->
-          <div class="row">
-            <div class="col-md-6 offset-md-3">
-              <%= search_form_for(@search, html: { class: "input-group form-sm form-1 pl-0" }) do |f| %>
-                  
-                    
-                      <%= f.search_field :fullname_cont, class: "form-control my-0 py-1",placeholder: "Search by student fullname "   %>
-                      <div class="input-group-prepend bg-primary">
-                        <span class="input-group-text bg-primary text-white" id="basic-text1"><i class="icofont-search" aria-hidden="true"></i></span>
-                      </div>
-                    
-                    <!-- <input class="form-control my-0 py-1" type="text" placeholder="Search" aria-label="Search"> -->
-              <% end %>
-            </div>
-          </div> 
-        </header>
-
-        <div class="row">
-         <% @almunis.each do |almuni| %>
-          <div class="col-lg-3" style="padding-right: 5px;">
-            <div class="post-box">
-              <div class="post-img"><%= link_to image_tag(almuni.documents[0],size:"280x800", class: "img-fluid"), almuni.documents[0] %></div>
-              
-              <h3 class="post-title"><%= almuni.fullname%></h3>
-              <span class="post-date"><strong>Modality:- <%= almuni.modality%> </strong></span>
-              <span class="post-date"><strong>Study level:- <%= almuni.study_level%> </strong></span>
-              <span class="post-date"><strong>Program:- <%= almuni.program_name%> </strong></span>
-              <span class="post-date"><strong>Graduation Date:- <%= almuni.graduation_date.strftime("%b %d, %Y")%> </strong></span>
-            <%= image_tag(almuni.qr_code, size: "50x50") if almuni.qr_code.attached? %>
-            
-            </div>
-          </div>
-        <%end%>
+  <section id="blog" class="blog-mf sect-pt4 route mt-5">
+      <div class="container">
+      <div class="pl-5 w-50 pb-2" style='margin-left:300px;'>
+      <%= search_form_for(@search, html: { class: "input-group form-sm form-1" }) do |f| %>
+      <%= f.search_field :fullname_cont, class: "form-control my-0 py-1",placeholder: "Search by student fullname "   %>
+        <div class="input-group-prepend bg-primary">
+          <span class="input-group-text bg-primary text-white" id="basic-text1"><i class="icofont-search" aria-hidden="true"></i></span>
         </div>
-
+      <% end %>
       </div>
 
+        <div class="row">
+        <% @almunis.each do |almuni| %>
+          <div class="col-md-4 mt-3">
+            <div class="card card-blog">
+              <div class="card-img">
+                <a href=""><%= link_to image_tag(almuni.documents[0],size:"380x800", class: "img-fluid"), almuni.documents[0] %></a>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title"><a href=""><%= almuni.fullname%></a></h3>
+                <span ><strong>Modality:- </strong> <%= almuni.modality%></span><br>
+                <span ><strong>Study level:- </strong><%= almuni.study_level%></span><br>
+                <span ><strong>Program:- </strong><%= almuni.program_name%> </span><br>
+                <span ><strong>Graduation Date:- </strong><%= almuni.graduation_date.strftime("%b %d, %Y")%> </span><br>
+                <%= image_tag(almuni.qr_code, size: "50x50") if almuni.qr_code.attached? %>
+              </div>
+            </div>
+          </div>
+        <% end %>  
+        </div>
+      </div>
     </section>
-    
     <!-- ======= Marketing Headline ======= -->
     <section id="cta" class="cta">
       <div class="container aos-init aos-animate " data-aos="zoom-in">

@@ -1,9 +1,9 @@
   <main id="main">
 
-    <section id="counts" class="counts">
-      <div class="container" data-aos="fade-up">
+    <section id="counts" class="counts mt-5">
+      <div class="container mt-5" data-aos="fade-up">
 
-        <div class="row">
+        <div class="row mt-5">
 
           <div class="col-lg-3 col-md-6">
             <div class="count-box">
@@ -23,7 +23,7 @@
 
           <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
             <div class="count-box">
-              <i class="bi bi-headset"></i>
+              <i class="bi bi-headdset"></i>
               <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"><%= @college.distance_center%></span>
               <p>Distance Centers</p>
             </div>
@@ -45,7 +45,7 @@
       <section id="featured-services" class="featured-services">
       <div class="container" data-aos="fade-up">
         <div class="section-title">
-          <h3>Check our <span>Services</span></h3>
+          <h2>Check our Services</h2>
         </div>
         <div class="row">
           <% @service.each do |s|%>
@@ -61,65 +61,122 @@
       </div>
     </section>
 
-    <section id="tabs" class="tabs">
-      <div class="container" data-aos="fade-up">
+    <section id="departments" class="departments">
+  		<div class="container">
 
-        <ul class="nav nav-tabs row d-flex">
-          <li class="nav-item col-3">
-            <a class="nav-link show" href="#tab-10">
-              <h4 class="d-none d-lg-block">Overview</h4>
-            </a>
-          </li>
-          <li class="nav-item col-3">
-            <a class="nav-link" href="#tab-20">
-              <h4 class="d-none d-lg-block">History</h4>
-            </a>
-          </li>
-          <li class="nav-item col-3">
-            <a class="nav-link" href="#tab-30">
-              <h4 class="d-none d-lg-block">Mission & Vision</h4>
-            </a>
-          </li>
-          <li class="nav-item col-3">
-            <a class="nav-link" href="#tab-40">
-              <h4 class="d-none d-lg-block">Mandate</h4>
-            </a>
-          </li>
-        </ul>
+  			<div class="section-title">
+  				<h2>More about us</h2>
+  			</div>
 
-        <div class="tab-content">
-          <div class="tab-pane active show" id="tab-10">
-            <div class="row">
-              <div class="col-lg-8 order-2 order-lg-1 mt-5 ml-5 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
-                <%= @college.overview.html_safe%>
-              </div>
-            </div>
+  			<div class="row">
+  				<div class="col-lg-3">
+  					<ul class="nav nav-tabs flex-column">
+  						<li class="nav-item">
+  							<a class="nav-link active show" data-bs-toggle="tab" href="#tab-12">Overview</a>
+  						</li>
+  						<li class="nav-item">
+  							<a class="nav-link" data-bs-toggle="tab" href="#tab-22">History</a>
+  						</li>
+  						<li class="nav-item">
+  							<a class="nav-link" data-bs-toggle="tab" href="#tab-32">Mission & Vision</a>
+  						</li>
+  						<li class="nav-item">
+  							<a class="nav-link" data-bs-toggle="tab" href="#tab-42">Mandate</a>
+  						</li>
+              <!-- <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#tab-52">E-learning</a>
+              </li> -->
+            </ul>
           </div>
-          <div class="tab-pane" id="tab-20">
-            <div class="row">
-              <div class="col-lg-8 ml-4 order-2 order-lg-1 mt-5 mt-lg-0">
-                <%= @college.mission.html_safe%>
-                <%= @college.vision.html_safe%>
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane" id="tab-30">
-            <div class="row">
-              <div class="col-lg-8 order-2 order-lg-1 mt-3 mt-lg-0">
-                <%= @college.history.html_safe%>
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane" id="tab-40">
-            <div class="row">
-              <div class="col-lg-8 order-2 order-lg-1 mt-3 mt-lg-0">
-                <%= @college.mandate.html_safe%>
-            </div>
+          <div class="col-lg-9 mt-4 mt-lg-0">
+          	<div class="tab-content">
+          		<div class="tab-pane active show" id="tab-12">
+          			<div class="row">
+          				<div class="col-lg-8 details order-2 order-lg-1">
+          					<h3>Overview</h3>
+          					<p><%= @college.overview.html_safe%></p>
+          				</div>
+          				<div class="col-lg-4 text-center order-1 order-lg-2">
+          					<img src="assets/img/departments-1.jpg" alt="" class="img-fluid">
+          				</div>
+          			</div>
+          		</div>
+          		<div class="tab-pane" id="tab-22">
+          			<div class="row">
+          				<div class="col-lg-8 details order-2 order-lg-1">
+          					<h3>History</h3>
+          					<p><%= @college.history.html_safe%></p>
+          				</div>
+          				<div class="col-lg-4 text-center order-1 order-lg-2">
+          					<img src="assets/img/departments-2.jpg" alt="" class="img-fluid">
+          				</div>
+          			</div>
+          		</div>
+          		<div class="tab-pane" id="tab-32">
+          			<div class="row">
+          				<div class="col-lg-8 details order-2 order-lg-1">
+          					<h3>Mission & Vision</h3>
+          					<p><%= @college.mission.html_safe%></p>
+          				</div>
+          				<div class="col-lg-4 text-center order-1 order-lg-2">
+          					<img src="assets/img/departments-3.jpg" alt="" class="img-fluid">
+          				</div>
+          			</div>
+          		</div>
+          		<div class="tab-pane" id="tab-42">
+          			<div class="row">
+          				<div class="col-lg-8 details order-2 order-lg-1">
+          					<h3>Mandate</h3>
+          					<p><%= @college.mandate.html_safe%></p>
+          				</div>
+          				<div class="col-lg-4 text-center order-1 order-lg-2">
+          					<img src="assets/img/departments-4.jpg" alt="" class="img-fluid">
+          				</div>
+          			</div>
+          		</div>
+          	</div>
           </div>
         </div>
 
       </div>
-    </section><!-- End Tabs Section -->
+    </section>
+
+    <section id="blog" class="blog-mf sect-pt4 route">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="section-title">
+              <h2>
+                Latest News
+              </h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+        <% @news.each do |n|%>
+          <div class="col-md-4">
+            <div class="card card-blog">
+              <div class="card-img">
+                <a href=""><%= image_tag n.photo, class: "img-fluid" %></a>
+              </div>
+              <div class="card-body">
+                <div class="card-category-box">
+                  <div class="card-category">
+                    <h6 class="category"><%= n.created_at %></h6>
+                  </div>
+                </div>
+                <h3 class="card-title"><a href=""><%= n.news_title %></a></h3>
+                <p class="card-description">
+                  <%= n.overview %>
+                </p>
+                <%= link_to "Read More", news_path(n.id), class: "readmore stretched-link mt-auto"%>
+              </div>
+            </div>
+          </div>
+        <% end %>  
+        </div>
+      </div>
+    </section>
 
     <section id="about" class="about section-bg">
       <div class="container" data-aos="fade-up">
@@ -151,7 +208,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h3>HU Leadership Team</h3>
+          <h2>HU Leadership Team</h2>
         </div>
 
         <div class="row">
@@ -159,7 +216,7 @@
             <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
               <div class="member">
                 <div class="member-img">
-                  <%= image_tag s.photo, class: "img-fluid" %>
+                  <%= image_tag s.photo,size:"380x250"%>
                 </div>
                 <div class="member-info">
                   <h4><%= s.fullname%></h4>
@@ -179,7 +236,7 @@
     <div class="row no-gutters">
       <div class="content col-xl-6 d-flex align-items-stretch">
       <% @staff.where(job_title: 'Vice PRESIDENT').each do |s|%>
-            <div class="content col-xl-6 d-flex align-items-stretch">
+            <div class="content col-xl-12 d-flex align-items-stretch">
               <div class="content">
                 <h3>Vice PRESIDENTS MESSAGE</h3>
                 <p>
@@ -191,7 +248,7 @@
               </div>
             </div>
             <div class="col-xl-6 d-flex align-items-stretch mt-5" >
-              <%= image_tag s.photo, size: "466x350", style: "margin-top: 100px;" %>
+              <%= image_tag s.photo, size: "466x350"%>
             </div>
           <%end%>
      
@@ -258,34 +315,6 @@
 			<% end %>
    		</div>
    	</section>
-
-
-<section id="recent-blog-posts" class="recent-blog-posts">
-
-  <div class="container aos-init aos-animate" data-aos="fade-up">
-
-    <header class="section-header">
-      <h2>News</h2>
-      <p>Latest news and articles</p>
-    </header>
-
-    <div class="row">
-      <% @news.each do |n|%>
-        <div class="col-lg-4">
-          <div class="post-box">
-            <div class="post-img"><%= image_tag n.photo %></div>
-            <span class="post-date"><%= n.created_at%></span>
-            <h3 class="post-title"><%= n.news_title %></h3>
-            <p><%= n.overview%></p>
-            <a href="news.html" class="readmore stretched-link mt-auto"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
-          </div>
-        </div>
-      <% end %>
-    </div>
-
-  </div>
-
-</section>
 
 
 <!-- ======= Testimonials Section ======= -->
