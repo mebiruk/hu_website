@@ -4,22 +4,22 @@
 
         <ul class="nav nav-tabs row d-flex">
           <li class="nav-item col-3">
-            <a class="nav-link show" href="#tab-10">
+            <a class="nav-link show" href="#tab-10" data-bs-toggle="tab" >
               <h4 class="d-none d-lg-block">How to Apply</h4>
             </a>
           </li>
-          <li class="nav-item col-3">
-            <a class="nav-link" href="#tab-20">
+          <li class="nav-item col-3" data-bs-toggle="tab" >
+            <a class="nav-link" href="#tab-20" data-bs-toggle="tab" >
               <h4 class="d-none d-lg-block">Required Document</h4>
             </a>
           </li>
           <li class="nav-item col-3">
-            <a class="nav-link" href="#tab-30">
+            <a class="nav-link" href="#tab-30" data-bs-toggle="tab" >
               <h4 class="d-none d-lg-block">Payment Process</h4>
             </a>
           </li>
           <li class="nav-item col-3">
-            <a class="nav-link" href="#tab-40">
+            <a class="nav-link" href="#tab-40" data-bs-toggle="tab" >
               <h4 class="d-none d-lg-block">Useful Informations</h4>
             </a>
           </li>
@@ -63,16 +63,37 @@
         <div class="section-title">
           <h3>Check our <%= @admission.admission_name%></h3>
         </div>
-        <div class="row">
+
+      <section id="courses" class="courses">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row" data-aos="zoom-in" data-aos-delay="100">
 			<%Program.where(study_level: @admission.study_level).where(modality: @admission.modality).each do |pro|%>
-				<div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
-					<div class="icon-box">
-						<h4><a href=""><%= pro.program_name%></a></h4>
-						<p><%= pro.program_description%></p>
-						<%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
-					</div>
-				</div>
+				 <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="course-item">
+            <%= image_tag pro.photo, class: "img-fluid" %>
+              <div class="course-content">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h4><%= pro.modality%></h4>
+                </div>
+                  
+           
+                  <h3><%= pro.program_name %></h3>
+                <%= pro.program_description%> 
+                
+                <div class="trainer d-flex justify-content-between align-items-center">
+                   <%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
+                </div>
+            </div>
+
+            </div>
+          </div> 
 			<% end %>
+
+        </div>
+
+      </div>
+    </section>
         </div>
       </div>
     </section>

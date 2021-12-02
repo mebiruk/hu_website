@@ -20,7 +20,7 @@
  *= require boxicons.min.css
  *= require glightbox.min.css
  *= require swiper-bundle.min.css
- *= require style.css
+ require style.css
  *= require_self
  */
 
@@ -29,6 +29,8 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+@import "style.css";
+ 
 body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
