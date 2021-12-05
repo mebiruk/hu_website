@@ -167,7 +167,7 @@
                 </div>
                 <h3 class="card-title"><a href=""><%= n.news_title %></a></h3>
                 <p class="card-description">
-                  <%= n.overview %>
+                  <%= n.overview.html_safe %>
                 </p>
                 <%= link_to "Read More", news_path(n.id), class: "readmore stretched-link mt-auto"%>
               </div>
