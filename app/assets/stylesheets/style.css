@@ -547,6 +547,7 @@ section {
 --------------------------------------------------------------*/
 .breadcrumbs {
   padding: 20px 0;
+  text-align: center;
   background-color: #f1f6fe;
   min-height: 40px;
 }
@@ -1293,34 +1294,52 @@ section {
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
-.contact .info-box {
-  color: #444444;
-  text-align: center;
-  box-shadow: 0 0 30px rgba(214, 215, 216, 0.3);
-  padding: 20px 0 30px 0;
+.contact {
+  padding-top: 5px;
 }
-.contact .info-box i {
-  font-size: 32px;
-  color: #106eea;
-  border-radius: 50%;
-  padding: 8px;
-  border: 2px dotted #b3d1fa;
+.contact .info {
+  width: 100%;
+  background: #fff;
 }
-.contact .info-box h3 {
+.contact .info i {
   font-size: 20px;
-  color: #777777;
-  font-weight: 700;
-  margin: 10px 0;
+  color: #5fcf80;
+  float: left;
+  width: 44px;
+  height: 44px;
+  background: #ecf9f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
 }
-.contact .info-box p {
-  padding: 0;
-  line-height: 24px;
-  font-size: 14px;
+.contact .info h4 {
+  padding: 0 0 0 60px;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #37423b;
+}
+.contact .info p {
+  padding: 0 0 0 60px;
   margin-bottom: 0;
+  font-size: 14px;
+  color: #657a6d;
+}
+.contact .info .email, .contact .info .phone {
+  margin-top: 40px;
+}
+.contact .info .email:hover i, .contact .info .address:hover i, .contact .info .phone:hover i {
+  background: #5fcf80;
+  color: #fff;
 }
 .contact .php-email-form {
-  box-shadow: 0 0 30px rgba(214, 215, 216, 0.4);
-  padding: 30px;
+  width: 100%;
+  background: #fff;
+}
+.contact .php-email-form .form-group {
+  padding-bottom: 8px;
 }
 .contact .php-email-form .error-message {
   display: none;
@@ -1359,33 +1378,30 @@ section {
   -webkit-animation: animate-loading 1s linear infinite;
   animation: animate-loading 1s linear infinite;
 }
-.contact .php-email-form .form-group {
-  margin-bottom: 20px;
-}
 .contact .php-email-form input, .contact .php-email-form textarea {
-  border-radius: 0;
+  border-radius: 4px;
   box-shadow: none;
   font-size: 14px;
 }
 .contact .php-email-form input:focus, .contact .php-email-form textarea:focus {
-  border-color: #106eea;
+  border-color: #5fcf80;
 }
 .contact .php-email-form input {
-  padding: 10px 15px;
+  height: 44px;
 }
 .contact .php-email-form textarea {
-  padding: 12px 15px;
+  padding: 10px 12px;
 }
 .contact .php-email-form button[type=submit] {
-  background: #106eea;
+  background: #5fcf80;
   border: 0;
-  padding: 10px 30px;
+  padding: 10px 35px;
   color: #fff;
   transition: 0.4s;
-  border-radius: 4px;
+  border-radius: 50px;
 }
 .contact .php-email-form button[type=submit]:hover {
-  background: #3b8af2;
+  background: #3ac162;
 }
 @-webkit-keyframes animate-loading {
   0% {
@@ -1403,6 +1419,8 @@ section {
     transform: rotate(360deg);
   }
 }
+
+
 
 /*--------------------------------------------------------------
 # Footer
@@ -1556,5 +1574,167 @@ section {
     float: none;
     text-align: center;
     padding: 2px 0;
+  }
+}
+
+/*--------------------------------------------------------------
+# Courses
+--------------------------------------------------------------*/
+
+.courses .course-item {
+  border-radius: 5px;
+  border: 1px solid #eef0ef;
+}
+.courses .course-content {
+  padding: 15px;
+}
+.courses .course-content h3 {
+  font-weight: 700;
+  font-size: 20px;
+}
+.courses .course-content h3 a {
+  color: #37423b;
+  transition: 0.3s;
+}
+.courses .course-content h3 a:hover {
+  color: #5fcf80;
+}
+.courses .course-content p {
+  font-size: 14px;
+  color: #777777;
+}
+.courses .course-content h4 {
+  font-size: 14px;
+  background: #5fcf80;
+  padding: 7px 14px;
+  color: #fff;
+  margin: 0;
+}
+.courses .course-content .price {
+  margin: 0;
+  font-weight: 700;
+  font-size: 18px;
+  color: #37423b;
+}
+.courses .trainer {
+  padding-top: 15px;
+  border-top: 1px solid #eef0ef;
+}
+.courses .trainer .trainer-profile img {
+  max-width: 50px;
+  border-radius: 50px;
+}
+.courses .trainer .trainer-profile span {
+  padding-left: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #5a6c60;
+}
+.courses .trainer .trainer-rank {
+  font-size: 18px;
+  color: #657a6d;
+}
+
+
+/*--------------------------------------------------------------
+# Cource Details
+--------------------------------------------------------------*/
+.course-details h3 {
+  font-size: 24px;
+  margin: 30px 0 15px 0;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 10px;
+}
+.course-details h3:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #eef0ef;
+  bottom: 0;
+  left: 0;
+}
+.course-details h3:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: #5fcf80;
+  bottom: 0;
+  left: 0;
+}
+.course-details .course-info {
+  background: #f6f7f6;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+}
+.course-details .course-info h5 {
+  font-weight: 400;
+  font-size: 16px;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+.course-details .course-info p {
+  margin: 0;
+  font-weight: 600;
+}
+.course-details .course-info a {
+  color: #657a6d;
+}
+
+/*--------------------------------------------------------------
+# Cource Details Tabs
+--------------------------------------------------------------*/
+.cource-details-tabs {
+  overflow: hidden;
+  padding-top: 0;
+}
+.cource-details-tabs .nav-tabs {
+  border: 0;
+}
+.cource-details-tabs .nav-link {
+  border: 0;
+  padding: 12px 15px 12px 0;
+  transition: 0.3s;
+  color: #37423b;
+  border-radius: 0;
+  border-right: 2px solid #e2e7e4;
+  font-weight: 600;
+  font-size: 15px;
+}
+.cource-details-tabs .nav-link:hover {
+  color: #5fcf80;
+}
+.cource-details-tabs .nav-link.active {
+  color: #5fcf80;
+  border-color: #5fcf80;
+}
+.cource-details-tabs .tab-pane.active {
+  -webkit-animation: fadeIn 0.5s ease-out;
+  animation: fadeIn 0.5s ease-out;
+}
+.cource-details-tabs .details h3 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #37423b;
+}
+.cource-details-tabs .details p {
+  color: #777777;
+}
+.cource-details-tabs .details p:last-child {
+  margin-bottom: 0;
+}
+@media (max-width: 992px) {
+  .cource-details-tabs .nav-link {
+    border: 0;
+    padding: 15px;
+  }
+  .cource-details-tabs .nav-link.active {
+    color: #fff;
+    background: #5fcf80;
   }
 }
