@@ -17,7 +17,7 @@
           <div class="col-md-4 mt-3">
             <div class="card card-blog">
               <div class="card-img">
-                <a href=""><%= link_to image_tag(almuni.documents[0],size:"380x800", class: "img-fluid"), almuni.documents[0] %></a>
+                <a href=""><%= link_to image_tag(almuni.documents[0], :size => '100%xauto', almuni.documents[0] %></a>
               </div>
               <div class="card-body">
                 <h3 class="card-title"><a href=""><%= almuni.fullname%></a></h3>

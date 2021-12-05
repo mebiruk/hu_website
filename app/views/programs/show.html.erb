@@ -15,7 +15,7 @@
 
         <div class="row">
           <div class="col-lg-8">
-          <%= image_tag @programs.photo, class: "img-fluid" %>
+          <%= image_tag @programs.photo, :size => '100%xauto' %>
             <h3><%= @programs.program_name %></h3>
             <%= @programs.program_description %>
           </div>

@@ -157,7 +157,7 @@
           <div class="col-md-4">
             <div class="card card-blog">
               <div class="card-img">
-                <a href=""><%= image_tag n.photo, class: "img-fluid" %></a>
+                <a href=""><%= image_tag n.photo, :size => '100%xauto' %></a>
               </div>
               <div class="card-body">
                 <div class="card-category-box">
@@ -183,7 +183,7 @@
         <div class="row no-gutters">
           <% @staff.where(job_title: 'PRESIDENT').each do |s|%>
             <div class="col-xl-4 d-flex align-items-stretch mt-5" >
-              <%= image_tag s.photo, size: "300x250", style: "margin-top: 100px;" %>
+              <%= image_tag s.photo, :size => '100%xauto' %>
             </div>
             <div class="content col-xl-8 d-flex align-items-stretch">
               <div class="content">
@@ -216,7 +216,7 @@
             <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
               <div class="member">
                 <div class="member-img">
-                  <%= image_tag s.photo,size:"380x250"%>
+                  <%= image_tag s.photo, :size => '100%xauto'%>
                 </div>
                 <div class="member-info">
                   <h4><%= s.fullname%></h4>
@@ -248,7 +248,7 @@
               </div>
             </div>
             <div class="col-xl-6 d-flex align-items-stretch mt-5" >
-              <%= image_tag s.photo, size: "466x350"%>
+              <%= image_tag s.photo, :size => '100%xauto'%>
             </div>
           <%end%>
      
@@ -286,7 +286,7 @@
 									<h4>Data Not Found</h4>
 								</div>
 							<% else %>
-								<%= image_tag a.accreditation_documents[0], class: "img-fluid"%>
+								<%= image_tag a.accreditation_documents[0], :size => '100%xauto'%>
 								<div class="portfolio-info">
 									<h4><%= a.accreditation_title%></h4>
 									<p><%= a.modality%></p>

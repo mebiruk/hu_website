@@ -27,7 +27,7 @@
 										<h4>Data Not Found</h4>
 									</div>
 								<% else %>
-									<%= image_tag a.accreditation_documents[0], class: "img-fluid"%>
+									<%= image_tag a.accreditation_documents[0], :size => '100%xauto'%>
 									<div class="portfolio-info">
 										<h4><%= a.accreditation_title%></h4>
 										<p><%= a.modality%></p>
