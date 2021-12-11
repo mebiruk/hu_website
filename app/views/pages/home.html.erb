@@ -5,7 +5,7 @@
           <h1>Better Suit For Your Knowledge</h1>
           <h2>We are team of talented designers making websites with Bootstrap</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="" class="btn-get-started scrollto">Apply Now</a>
+            <a href="http://portal.heuc.edu.et/students/sign_up" class="btn-get-started scrollto">Apply Now</a>
             <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
           </div>
         </div>
@@ -58,7 +58,7 @@
               <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
                 <div class="icon-box">
                   <h4><a href=""><%= pro.program_name%></a></h4>
-                  <p><%= pro.overview%></p>
+                  <p><%= pro.overview.html_safe%></p>
                   <%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
                 </div>
               </div>
@@ -103,7 +103,7 @@
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
               <div class="icon-box">
                 <h4><a href=""><%= pro.program_name%></a></h4>
-                <p><%= pro.overview%></p>
+                <p><%= pro.overview.html_safe%></p>
                 <%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
               </div>
             </div>
@@ -115,22 +115,27 @@
 
    	<section id="cta" class="cta" data-aos="zoom-in" data-aos-delay="100">
    		<div class="container aos-init aos-animate " data-aos="zoom-in">
-		  <div class="row">
-			<div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="100">
-				<h3 class="pl-5">Mission</h3>
-				<p class="fst-italic">
-					<%= @college.mission.html_safe%>
-				</p>
-			</div>
+        <div class="row">
+            <div class="col-lg-4 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="100">
+              <h3 class="pl-5">Mission</h3>
+              <p class="fst-italic">
+                <%= @college.mission.html_safe%>
+              </p>
+            </div>
 
-			<div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="100">
-				<h3>Vision</h3>
-				<p class="fst-italic">
-					<%= @college.vision.html_safe%>
-				</p>
-          	</div>
-		  </div>
-
+            <div class="col-lg-4 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="100">
+              <h3>Vision</h3>
+              <p class="fst-italic">
+                <%= @college.vision.html_safe%>
+              </p>
+                  </div>
+           
+            <div class="col-lg-4 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="100">
+              <h3>Goal</h3>
+            
+                <button><a class="getstarted scrollto" href="http://portal.heuc.edu.et/students/sign_up">Apply Now</a></button>  
+            </div>
+        </div>
    		</div>
    	</section>
 

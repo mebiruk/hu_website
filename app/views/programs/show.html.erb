@@ -17,7 +17,7 @@
           <div class="col-lg-8">
           <%= image_tag @programs.photo, class: "img-fluid" %>
             <h3><%= @programs.program_name %></h3>
-            <%= @programs.program_description %>
+            <%= @programs.program_description.html_safe %>
           </div>
           <div class="col-lg-4">
 

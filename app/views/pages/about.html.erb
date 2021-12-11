@@ -167,7 +167,7 @@
                 </div>
                 <h3 class="card-title"><a href=""><%= n.news_title %></a></h3>
                 <p class="card-description">
-                  <%= n.overview %>
+                  <%= n.overview.html_safe %>
                 </p>
                 <%= link_to "Read More", news_path(n.id), class: "readmore stretched-link mt-auto"%>
               </div>
@@ -183,9 +183,9 @@
         <div class="row no-gutters">
           <% @staff.where(job_title: 'PRESIDENT').each do |s|%>
             <div class="col-xl-4 d-flex align-items-stretch mt-5" >
-              <%= image_tag s.photo, class: "img-fluid" %>
+              <%= image_tag s.photo, class: "img-fluid mr-2" %>
             </div>
-            <div class="content col-xl-8 d-flex align-items-stretch">
+            <div class="content col-xl-7 ml-5 d-flex align-items-stretch">
               <div class="content">
                 <h3>PRESIDENTS MESSAGE</h3>
                 <p>
@@ -208,7 +208,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>HU Leadership Team</h2>
+          <h2>HEUC Leadership Team</h2>
         </div>
 
         <div class="row">
@@ -449,7 +449,7 @@
             <div class="info-box mt-4">
               <i class="bx bx-envelope"></i>
               <h3>Email Us</h3>
-              <p>info@yic.edu.et<br>contact@yic.edu.et</p>
+              <p>info@heuc.edu.et<br>contact@heuc.edu.et</p>
             </div>
           </div>
           <div class="col-md-6">
