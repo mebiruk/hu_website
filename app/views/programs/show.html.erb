@@ -4,8 +4,7 @@
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs mt-5" data-aos="fade-in">
       <div class="container mt-5">
-        <h2><%= @programs.program_name %> Details</h2>
-           <%= @programs.overview %>
+           <%= @programs.overview.html_safe %>
       </div>
     </div><!-- End Breadcrumbs -->
 

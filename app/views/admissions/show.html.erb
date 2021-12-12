@@ -58,6 +58,19 @@
       </div>
     </section>
 
+        <!-- ======= Marketing Headline ======= -->
+    <section id="cta" class="cta">
+    	<div class="container aos-init aos-animate " data-aos="zoom-in">
+			<% @marketing.where(page_to_display: 'admission').each do |m|%>
+				<div class="text-center">
+					<h3><%= m.headline_title%></h3>
+					<p><%= m.description.html_safe%></p>
+					<a class="cta-btn" href="<%= m.action%>">Learn more</a>
+				</div>
+			<% end %>
+    	</div>
+    </section> <!-- End Marketing -->
+
 	<section id="services" class="services">
       <div class="container" data-aos="fade-up">
         <div class="section-title">
@@ -96,16 +109,4 @@
       </div>
     </section>
 
-    <!-- ======= Marketing Headline ======= -->
-    <section id="cta" class="cta">
-    	<div class="container aos-init aos-animate " data-aos="zoom-in">
-			<% @marketing.where(page_to_display: 'admission').each do |m|%>
-				<div class="text-center">
-					<h3><%= m.headline_title%></h3>
-					<p><%= m.description.html_safe%></p>
-					<a class="cta-btn" href="<%= m.action%>">Learn more</a>
-				</div>
-			<% end %>
-    	</div>
-    </section> <!-- End Marketing -->
   </main>
