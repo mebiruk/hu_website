@@ -5,15 +5,16 @@
         <div class="row mt-5">
           <div class="col-lg-7 entries">
             <article class="entry">
+              
+			        <div class="entry-img">
+                <%= image_tag @news.photo, class: "mt-2 mb-2 img-thumbnail" %>
+              </div>
               <h2 class="entry-title">
                 <div style= "color :#0975b8"><%= @news.overview.html_safe%></div>
               </h2>
-			        <br>
-			        <div class="entry-img">
-                <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
-              </div>
               <div class="entry-meta">
-                <ul>
+              
+                <ul class='mt-2'>
                   <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href=""><%= @news.published_by%></a></li>
                   <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href=""><time datetime="2020-01-01"><%= @news.created_at%></time></a></li>               
                 </ul>
@@ -24,9 +25,23 @@
             </article>
           </div>
 
-          <div class="col-lg-5 entries mt-5">
-            <%= image_tag @news.photo, class: "img-fluid" %>
+          <div class="col-lg-4">
+            <div class="sidebar">
+              <h3 class="sidebar-title">Recent News</h3>
+              <div class="sidebar-item recent-posts">
+                <% @news_all.each do |n|%>                 
+                  <div class="post-item clearfix">
+                    <h4><a href="#" style="pointer-events: none"><%= n.overview.html_safe%></a></h4>
+                    <time datetime="2020-01-01"><%= n.created_at %></time>
+                  </div>
+                <% end%>
+              </div>
+
+            </div>
+
           </div>
+
+
 
         </div>
 
