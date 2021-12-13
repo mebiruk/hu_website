@@ -18,15 +18,16 @@
               </div>
               <div class="card-body">
                 <div class="card-category-box">
-                  <div class="card-category">
-                    <h6 class="category"><%= n.created_at %></h6>
-                  </div>
+                
                 </div>
                 <h3 class="card-title"><a href=""><%= n.news_title %></a></h3>
                 <p class="card-description">
                   <%= n.overview %>
                 </p>
                 <%= link_to "Read More", news_path(n.id), class: "readmore stretched-link mt-auto"%>
+                <div>
+                   <%= time_tag n.created_at  %>
+                </div>
               </div>
             </div>
           </div>

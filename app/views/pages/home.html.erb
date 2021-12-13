@@ -27,7 +27,7 @@
         <div class="row content">
           <div class="col-lg-6">
             <p>
-              <%= @college.overview %>
+              <%= @college.overview.html_safe %>
             </p>
             <ul>
               <li><i class="ri-check-double-line"></i> <%= Time.now.year - @college.establishment_date.year %> Years Of Academic Services</li>
@@ -38,7 +38,7 @@
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
             <p>
-              <%= @college.background %>
+              <%= @college.background.html_safe %>
             </p>
             <%= link_to "Learn More", about_path, class: "btn-learn-more"%>
           </div>
@@ -163,15 +163,16 @@
               </div>
               <div class="card-body">
                 <div class="card-category-box">
-                  <div class="card-category">
-                    <h6 class="category"><%= n.created_at %></h6>
-                  </div>
+                 
                 </div>
                 <h3 class="card-title"><a href=""><%= n.news_title %></a></h3>
                 <p class="card-description">
                   <%= n.overview.html_safe %>
                 </p>
                 <%= link_to "Read More", news_path(n.id), class: "readmore stretched-link mt-auto"%>
+                  <div>
+                   <%= time_tag n.created_at  %>
+                </div>
               </div>
             </div>
           </div>
@@ -211,9 +212,9 @@
 
     <section id="cta" class="cta" style='max-height: 50px;'>
       <div class="container" data-aos="zoom-in">
-        <div class="row">
+        <div class="row justify-content-center" >
           <% @marketing.where(page_to_display: 'about').each do |m|%>
-            <div class="col-lg-9 text-center text-lg-start">
+            <div class="col-lg-6 text-center text-lg-start">
               <h3><%= m.headline_title%></h3>
               <p><%= m.description%>.</p>
             </div>
