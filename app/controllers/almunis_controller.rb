@@ -1,9 +1,11 @@
 class AlmunisController < ApplicationController
   before_action :set_almuni, only: %i[ show edit update destroy ]
-
+  ALMUNIS_SIZS = 12
   # GET /almunis or /almunis.json
   def index
+    @page = (params[:page] || 0).to_i
     @search = Almuni.search(params[:q])
+    @almunis_with_page = Almuni.offset(ALMUNIS_SIZS * @page).limit(ALMUNIS_SIZS)
     @almunis = @search.result.page(params[:page])
     @marketing = MarketingSection.all
   end

@@ -16,11 +16,9 @@
         <% @almunis&.each do |almuni| %>
           <div class="col-md-4 mt-3">
             <div class="card card-blog">
-              <div class="card-img">
-                <a href=""><%= link_to image_tag(almuni.photo, class: "img-fluid"), almuni.photo %></a>
-              </div>
+              <%= link_to image_tag(almuni.photo, class: "card-img-top"), almuni.photo %>
               <div class="card-body">
-                <h3 class="card-title"><a href=""><%= almuni.fullname%></a></h3>
+                <h3 class="card-title text-dark"><strong><%= almuni.fullname%></strong></h3>
                 <span ><strong>Modality:- </strong> <%= almuni.modality%></span><br>
                 <span ><strong>Study level:- </strong><%= almuni.study_level%></span><br>
                 <span ><strong>Program:- </strong><%= almuni.program_name%> </span><br>
@@ -33,6 +31,12 @@
         </div>
       </div>
     </section>
+<div class="text-center">
+<ul class="pagination" style="margin-left: 500px">
+  <%= link_to_if @page > 0, "Previous", almunis_path(page: @page - 1), class: 'mr-3' %>
+  <%= link_to "Next", almunis_path(page: @page + 1),class: 'ml-5' %>
+</ul>
+</div>
 
     <!-- ======= Marketing Headline ======= -->
     <section id="cta" class="cta">
