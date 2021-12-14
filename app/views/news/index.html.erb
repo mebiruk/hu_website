@@ -23,6 +23,9 @@
                   <%= n.overview %>
                 </p>
                 <%= link_to "Read More", news_path(n.id), class: "readmore stretched-link mt-auto"%>
+                <div>
+                   <%= time_tag n.created_at  %>
+                </div>
               </div>
             </div>
           </div>

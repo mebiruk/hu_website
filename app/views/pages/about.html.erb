@@ -308,6 +308,7 @@
 
    	<section id="cta" class="cta" data-aos="zoom-in" data-aos-delay="100">
    		<div class="container aos-init aos-animate " data-aos="zoom-in">
+   
 			<% @marketing.where(page_to_display: 'about').each do |m|%>
 				<div class="text-center">
 					<h3><%= m.headline_title%></h3>
