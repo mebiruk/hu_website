@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'about' => 'pages#about'
   get 'accreditation' => 'pages#accreditation'
   resources :admissions
-  resources :facuilties
+  resources :facuilty
   resources :programs
   resources :news
   resources :almunis
