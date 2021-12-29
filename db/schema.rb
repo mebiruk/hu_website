@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_06_111052) do
+ActiveRecord::Schema.define(version: 2021_12_27_192233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -145,6 +145,13 @@ ActiveRecord::Schema.define(version: 2021_10_06_111052) do
     t.string "map_embed"
     t.string "created_by"
     t.string "last_updated_by"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "goal"
+  end
+
+  create_table "facuilties", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

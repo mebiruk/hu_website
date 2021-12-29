@@ -13,8 +13,10 @@ class Program < ApplicationRecord
   	scope :extention, lambda { where(modality: "extention")}
   	scope :distance, lambda { where(modality: "distance")}
   ##associations
-	has_many :accreditations
-  has_many :career_opportunities
 
-  has_one_attached :photo
+	belongs_to :facuilty
+	
+	has_many :career_opportunities
+
+ 	 has_one_attached :photo
 end

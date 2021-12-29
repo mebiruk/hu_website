@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+    @facuilties = Facuilty.all
     @college = College.last
     @comment = VisitorComment.all
     @marketing = MarketingSection.all

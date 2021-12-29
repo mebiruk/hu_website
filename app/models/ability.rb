@@ -27,6 +27,7 @@ class Ability
         can :manage, Service
         can :manage, Staff
         can :manage, VisitorComment
+        can :manage, Facuilty
     when "finance"
         can :manage, ActiveAdmin::Page, name: "Dashboard", namespace_name: "admin"
         can :manage, Program

@@ -3,6 +3,7 @@ class College < ApplicationRecord
     validates :college_name , :presence => true,:length => { :within => 2..100 }
     validates :mission, :presence => true
 		validates :vision, :presence => true
+		validates :goal, :presence =>true
 		validates :overview, :presence => true
 		validates :establishment_date, :presence => true
 		validates :student_enrolled, :presence => true

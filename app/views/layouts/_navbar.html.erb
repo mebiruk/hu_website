@@ -9,6 +9,13 @@
         <ul>
           <li><%= link_to "Home", root_path%></li>
           <li><%= link_to "Progams", programs_path%></li>
+          <li class="dropdown"><a href="#"><%= link_to "Facuilties", "#"%><i class="bi bi-chevron-down"></i></a>
+                <ul>
+                <% Facuilty.all.each do |facuilties|%>
+                  <li><%= link_to("#{facuilties.name}", {controller: "facuilties", action: "show", id: facuilties.id} )%></li>
+                <% end %>
+                </ul>
+          </li>
           <li><%= link_to "About", about_path%></li>
           <li><%= link_to "Almunis", almunis_path%></li>
           <li><%= link_to "News", news_index_path%></li>
@@ -21,7 +28,7 @@
           </li>
           
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="nav-link scrollto" href="">E-Learning</a></li>
+          <li><%= link_to("E-learning", {controller: "admissions", action: "show", id: 3} )%></li>
           <li><a class="getstarted scrollto" href="http://portal.heuc.edu.et/students/sign_up">Apply Now</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

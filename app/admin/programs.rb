@@ -1,9 +1,10 @@
 ActiveAdmin.register Program do
 
-  permit_params :program_name,:study_level,:modality,:overview,:program_description,:program_duration,:total_tuition,:monthly_tuition,:created_by,:last_updated_by, :photo
+  permit_params :facuilty,:program_name,:study_level,:modality,:overview,:program_description,:program_duration,:total_tuition,:monthly_tuition,:created_by,:last_updated_by, :photo
 
   index do
     selectable_column
+    column :facuilty
     column :program_name
     column :study_level
     column :modality
@@ -15,6 +16,7 @@ ActiveAdmin.register Program do
     actions
   end
 
+  filter :facuilty=
   filter :program_name
   filter :study_level, as: :select, :collection => ["undergraduate", "graduate"]
   filter :modality, as: :select, :collection => ["online", "regular", "extention", "distance"]
@@ -34,6 +36,7 @@ ActiveAdmin.register Program do
   form do |f|
     f.semantic_errors
     f.inputs "porgram information" do
+      #f.input :facuilty, :collection => Facuilty.all.map{|facuilty| [facuilty.name]}
       f.input :program_name
       f.input :overview,  :as => :ckeditor
       f.input :program_description,  :as => :ckeditor

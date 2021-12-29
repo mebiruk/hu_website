@@ -6,6 +6,7 @@ class CreateColleges < ActiveRecord::Migration[5.2]
     	t.text :background
     	t.text :mission, null: false
     	t.text :vision, null: false
+		t.text :goal, null: false
     	t.text :overview, null: false
     	t.datetime :establishment_date, null: false
     	t.integer :student_enrolled, null: false
