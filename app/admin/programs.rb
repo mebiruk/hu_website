@@ -1,6 +1,6 @@
 ActiveAdmin.register Program do
 
-  permit_params :facuilty,:program_name,:study_level,:modality,:overview,:program_description,:program_duration,:total_tuition,:monthly_tuition,:created_by,:last_updated_by, :photo
+  permit_params :facuilty_id,:program_name,:study_level,:modality,:overview,:program_description,:program_duration,:total_tuition,:monthly_tuition,:created_by,:last_updated_by, :photo
 
   index do
     selectable_column
@@ -35,8 +35,9 @@ ActiveAdmin.register Program do
   scope :distance
   form do |f|
     f.semantic_errors
-    f.inputs "porgram information" do
-      #f.input :facuilty, :collection => Facuilty.all.map{|facuilty| [facuilty.name]}
+    f.inputs "program information" do
+      facuilties = Facuilty.all
+      f.input :facuilty, :as => :select , :collection => facuilties
       f.input :program_name
       f.input :overview,  :as => :ckeditor
       f.input :program_description,  :as => :ckeditor
@@ -58,6 +59,7 @@ ActiveAdmin.register Program do
   show title: :program_name do
     panel "Program information" do
       attributes_table_for program do
+        row :facuilty
         row :program_name
         row :overview
         row :program_description
