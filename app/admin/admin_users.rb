@@ -29,12 +29,12 @@ ActiveAdmin.register AdminUser do
   filter :sign_in_count
   filter :created_at
 
-  scope :recently_added
-  scope :total_users
-  scope :admins
-  scope :registrars
-  scope :department_head
-  scope :dean
+  # scope :recently_added
+  # scope :total_users
+  # scope :admins
+  # scope :registrars
+  # scope :department_head
+  # scope :dean
 
   form do |f|
     f.inputs "Adminstration Account" do

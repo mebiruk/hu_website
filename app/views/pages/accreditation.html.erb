@@ -157,13 +157,13 @@
   		</div>
   	</section><!-- End Portfolio Section -->
   	
-  	<section id="cta" class="cta">
+  	<section id="cta1" class="cta1">
   		<div class="container aos-init aos-animate " data-aos="zoom-in">
 			<% @marketing.where(page_to_display: 'accreditation').each do |m|%>
 				<div class="text-center">
 					<h3><%= m.headline_title%></h3>
 					<p><%= m.description%></p>
-					<a class="cta-btn" href="<%= m.action%>">Learn more</a>
+					<a class="cta1-btn" href="<%= m.action%>">Learn more</a>
 				</div>
 			<% end %>
   		</div>

@@ -203,7 +203,7 @@
       </div>
     </section>
 
-    <section id="cta" class="cta">
+    <section id="cta1" class="cta1">
       <div class="container" data-aos="zoom-in">
         <div class="row justify-content-center" >
           <% @marketing.where(page_to_display: 'about').each do |m|%>
@@ -211,8 +211,8 @@
               <h3><%= m.headline_title%></h3>
               <p><%= m.description%>.</p>
             </div>
-            <div class="col-lg-3 cta-btn-container text-center">
-              <a class="cta-btn align-middle" href="<%= m.action%>">Call To Action</a>
+            <div class="col-lg-3 cta1-btn-container text-center">
+              <a class="cta1-btn align-middle" href="<%= m.action%>">Call To Action</a>
             </div>
           <% end %>
         </div>
