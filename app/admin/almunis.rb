@@ -1,7 +1,7 @@
 ActiveAdmin.register Almuni do
   config.batch_actions = true
 
-  permit_params :fullname,:sex,:phone_number,:modality,:study_level,:graduation_date,:program_name, :photo, documents: []
+  permit_params :fullname,:student_id,:sex,:phone_number,:modality,:study_level,:graduation_date,:program_name, :photo, documents: []
   active_admin_import
 
   scoped_collection_action :scoped_collection_update, form: -> do
@@ -40,6 +40,7 @@ ActiveAdmin.register Almuni do
         end
       end
       f.input :fullname
+      f.input :student_id
       f.input :modality, as: :select, :collection => ["online", "regular", "extention", "distance"]
       f.input :study_level, as: :select, :collection => ["undergraduate", "graduate"]
       f.input :program_name
@@ -100,6 +101,7 @@ ActiveAdmin.register Almuni do
           end
         end
         row :fullname
+        row :student_id
         row :modality
         row :study_level
         row :program_name

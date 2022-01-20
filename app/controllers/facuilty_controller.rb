@@ -7,14 +7,14 @@ class FacuiltyController < ApplicationController
         @marketing = MarketingSection.all
         @programs = Program.where(facuilty_id: params[:id])
         
-        
+        @facuilty = Facuilty.friendly.find(params[:id])
     end
 
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_facuilty
         
-      @facuilty = Facuilty.find(params[:id])
+      @facuilty = Facuilty.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

@@ -19,12 +19,12 @@
         <div class="col-lg-2 col-md-6 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="about">About us</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="accreditation">Accreditation</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Office</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="programs">Programs</a></li>
+            <li><i class="bx bx-chevron-right"></i> <%= link_to "Home",root_path%></li>
+            <li><i class="bx bx-chevron-right"></i> <%= link_to "About us","about"%></li>
+            <li><i class="bx bx-chevron-right"></i> <%= link_to "Services","#"%></li>
+            <li><i class="bx bx-chevron-right"></i> <%= link_to "Accreditation","accreditation"%></li>
+            <li><i class="bx bx-chevron-right"></i> <%= link_to "Office","staffs"%></li>
+            <li><i class="bx bx-chevron-right"></i> <%= link_to "Programs","programs"%><a href="programs">Programs</a></li>
           </ul>
         </div>
 
@@ -41,11 +41,18 @@
           <h4>Our Social Networks</h4>
           <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
           <div class="social-links mt-3">
-           
-            <a href="#" class="twitter"><%= icon("twitter", class: "bx bxl-twitter fill") %></a>
-            <a href="#" ><%= icon("facebook", class: "bx bx-facebook")%></a>
-            <a href="#" ><%= icon("linkedin", class: "bx bx-linkedin")%></a>
-            <a href="#" ><%= icon("instagram", class: "bx bx-instagram")%></a>
+            <%= link_to "#{College.last.twitter_handle}", class:"twitter" do %>
+            <%= icon("twitter", class: "bx bxl-twitter fill") %>
+            <% end%>
+            <%= link_to "#{College.last.facebook_handle}", class:"twitter" do %>
+            <%= icon("facebook", class: "bx bx-facebook")%>
+            <% end%>
+            <%= link_to "#{College.last.linkedin_handle}", class:"twitter" do %>
+            <%= icon("linkedin", class: "bx bx-linkedin")%>
+            <% end%>
+            <%= link_to "#{College.last.instagram_handle}", class:"twitter" do %>
+            <%= icon("instagram", class: "bx bx-instagram")%>
+            <% end%>
  
           </div>
         </div>

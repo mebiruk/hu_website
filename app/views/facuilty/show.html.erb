@@ -90,10 +90,10 @@
             <div class="card-body d-flex flex-column">
               <h6><span class="badge badge-secondary float-left mb-1"><%= pro.modality%></span></h6>
               <h3 class="card-title font-weight-bold"><%= pro.program_name %></h3>
-              <p class="card-description">
-              <%= pro.overview.html_safe%> 
+              <p class="card-description text-justify">
+              <%= truncate(pro.overview.html_safe, length: 256)%> 
               </p>
-              <%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
+              <%= link_to "Read More", program_path(pro), class: "readmore stretched-link mt-auto"%>
             </div>
           </div>
         </div>

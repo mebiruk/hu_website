@@ -34,6 +34,24 @@ menu label: "Comment"
   filter :created_at
 
 
+  form do |f|
+    f.semantic_errors
+    f.inputs "Visitor Comments" do
+      
+      f.input :fullname
+      f.input :category,as: :select, :collection => ["comment", "testimonial", "review"]
+      f.input :subject    
+      f.input :email
+      f.input :phone_number
+      f.input :display_on_home_page
+      # f.input :main_testimonial
+      f.input :message, :as => :ckeditor   
+      f.input :photo, as: :file 
+    end
+    f.actions
+  end
+
+
   show title: :fullname do
     panel 'VisitorComment' do
       attributes_table_for visitor_comment do

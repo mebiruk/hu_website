@@ -14,5 +14,10 @@ ActiveAdmin.register Facuilty do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+  form do |f|
+    f.semantic_errors
+      f.input :name
+      f.actions
+end
+
 end

@@ -18,11 +18,14 @@ class Ability
         # cannot :destroy, College, id: 1
 
         can :manage, Accreditation
-        # can :manage, Admission
+        can :manage, Admission
         can :manage, Almuni
+        # can :manage, Branch
         can :manage, CareerOpportunity
+        can :manage, FrequentlyAskedQuestion
         can :manage, MarketingSection
         can :manage, News
+        can :manage, Request
         can :manage, SectionHeadline
         can :manage, Service
         can :manage, Staff

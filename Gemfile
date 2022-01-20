@@ -42,6 +42,9 @@ gem 'bootstrap', '~> 4.6'
 gem 'simple_form', '~> 5.0', '>= 5.0.2'
 gem 'cloudinary'
 
+gem 'kaminari', '~> 1.2', '>= 1.2.1'
+gem 'friendly_id', '~> 5.4', '>= 5.4.2'
+
 gem "rqrcode", "~> 2.1"
 
 gem "chunky_png", "~> 1.4"

@@ -5,7 +5,7 @@
       <div class="container" data-aos="fade-up">
         <div class="section-title mt-5">
             <h2>Our Degree Programs</h2>
-        </div><!-- End Breadcrumbs -->
+        </div>
 
         <div class="row">
         <% Program.where(study_level: 'undergraduate').each  do |pro|%>
@@ -15,10 +15,10 @@
               <div class="card-body d-flex flex-column">
                 <h6><span class="badge badge-secondary float-left mb-1"><%= pro.modality%></span></h6>
                 <h3 class="card-title font-weight-bold"><%= pro.program_name %></h3>
-                <p class="card-description">
-                <%= pro.overview.html_safe%> 
+                <p class="card-description text-justify">
+                <%= truncate(pro.overview.html_safe, length: 256)%> 
                 </p>
-                <%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
+                <%= link_to "Read More", program_path(pro), class: "readmore stretched-link mt-auto"%>
 
               </div>
             </div>
@@ -28,7 +28,7 @@
       </div>
       </section>
     
-    <!-- ======= Contact Section ======= -->
+
  
       <div class="section-title">
         <h2>Our Master Programs</h2>
@@ -43,8 +43,8 @@
             <div class="card-body d-flex flex-column">
               <h6><span class="badge badge-secondary float-left mb-1"><%= pro.modality%></span></h6>
               <h3 class="card-title font-weight-bold"><%= pro.program_name %></h3>
-              <p class="card-description">
-              <%= pro.overview.html_safe%> 
+              <p class="card-description text-justify">
+              <%= truncate(pro.overview.html_safe, length: 256)%> 
               </p>
               <%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
 
@@ -70,32 +70,32 @@
         <div class="row" data-aos="fade-up" data-aos-delay="100">
 
           <div class="col-lg-5 mr-5 ">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="form-row">
-                <div class="col form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                  <div class="validate"></div>
-                </div>
-                <div class="col form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                  <div class="validate"></div>
-                </div>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                <div class="validate"></div>
-              </div>
-              <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                <div class="validate"></div>
-              </div>
-              <div class="mb-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
+					<%= simple_form_for(VisitorComment.new, url: visitor_comments_path, html: { class: 'php-email-form'}) do |f| %>
+						<div class="form-row">
+    						<div class="col form-group">
+								<%= f.input :fullname, class: "form-control"%>
+    							<div class="validate"></div>
+    						</div>
+    						<div class="col form-group">
+								<%= f.input :category, collection: ["testimonial", "comment", "review"], class: "form-control"%>
+    							<div class="validate"></div>
+    						</div>
+    					</div>
+    					<div class="form-group">
+							<%= f.input :subject, class: "form-control"%>
+    						<div class="validate"></div>
+    					</div>
+    					<div class="form-group">
+							<%= f.input :message, class: "form-control", type: 'text'%>
+    						<div class="validate"></div>
+    					</div>
+    					<div class="mb-3">
+    						<div class="loading">Loading</div>
+    						<div class="error-message"></div>
+    						<div class="sent-message">Your message has been sent. Thank you!</div>
+    					</div>
+						<%= f.submit 'Send Message', class: 'btn btn-primary'%>
+    					<% end %>
           </div>
 
           <div class="col-lg-5 ml-5">
@@ -108,14 +108,14 @@
                   <p>Ethiopia Addis Ababa, Asmara Road</p>
                 </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-12">
                 <div class="info-box mt-4">
                   <i class="bx bx-envelope"></i>
                   <h3>Email Us</h3>
                   <p>info@heuc.edu.et<br>contact@heuc.edu.et</p>
                 </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-12">
                 <div class="info-box mt-4">
                   <i class="bx bx-phone-call"></i>
                   <h3>Call Us</h3>

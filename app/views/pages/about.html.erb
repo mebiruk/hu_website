@@ -25,7 +25,7 @@
             <div class="count-box">
               <i class="bi bi-headdset"></i>
               <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"><%= @college.distance_center%></span>
-              <p>Distance Centers</p>
+              <p>Branches</p>
             </div>
           </div>
 
@@ -97,7 +97,7 @@
           					<p><%= @college.overview.html_safe%></p>
           				</div>
           				<div class="col-lg-4 text-center order-1 order-lg-2">
-          					<img src="assets/img/departments-1.jpg" alt="" class="img-fluid">
+          					<%= image_tag "departments-1.jpg", alt:"", class:"img-fluid"%>
           				</div>
           			</div>
           		</div>
@@ -108,7 +108,7 @@
           					<p><%= @college.history.html_safe%></p>
           				</div>
           				<div class="col-lg-4 text-center order-1 order-lg-2">
-          					<img src="assets/img/departments-2.jpg" alt="" class="img-fluid">
+          					<%= image_tag "departments-2.jpg", alt:"", class:"img-fluid"%>
           				</div>
           			</div>
           		</div>
@@ -119,7 +119,7 @@
           					<p><%= @college.mission.html_safe%></p>
           				</div>
           				<div class="col-lg-4 text-center order-1 order-lg-2">
-          					<img src="assets/img/departments-3.jpg" alt="" class="img-fluid">
+          					<%= image_tag "departments-3.jpg", alt:"", class:"img-fluid"%>
           				</div>
           			</div>
           		</div>
@@ -130,7 +130,7 @@
           					<p><%= @college.mandate.html_safe%></p>
           				</div>
           				<div class="col-lg-4 text-center order-1 order-lg-2">
-          					<img src="assets/img/departments-4.jpg" alt="" class="img-fluid">
+          					<%= image_tag "departments-4.jpg", alt:"", class:"img-fluid"%>
           				</div>
           			</div>
           		</div>
@@ -208,16 +208,16 @@
 </section>
 <!-- ======= Departments Section ======= -->
 
-<section id="team" class="team section-bg">
+<section id="team" class="team section-bg pt-0">
       <div class="container" data-aos="fade-up">
 
-        <div class="section-title">
+        <div class="section-title ">
           <h2>HEUC Leadership Team</h2>
         </div>
 
         <div class="row">
           <% @staff.where.not(job_title: 'PRESIDENT').where.not(job_title: 'Vice PRESIDENT').each do |s|%>
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-4 col-md-6 align-items-stretch" data-aos="fade-up" data-aos-delay="100">
               <div class="member">
                 <div class="member-img">
                   <%= image_tag s.photo, class: "img-fluid"%>
@@ -332,14 +332,13 @@
   <div class="container-fluid">
 
     <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
-      <div class="col-xl-10">
+      <div class="col-xl-9">
         <div class="owl-carousel testimonials-carousel">
           <% @comment.where(display_on_home_page: true).each do |c|%>
           <div class="testimonial-wrap">
             <div class="testimonial-item">
-              <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+              <img src="assets/images/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
               <h3><%= c.fullname%></h3>
-              <h4>Ceo &amp; Founder</h4>
               <p>
                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                 <%= c.message%>
@@ -367,64 +366,18 @@
     </div>
 
     <ul class="faq-list" data-aos="fade-up">
-
-      <li>
-        <a data-toggle="collapse" class="collapsed" href="#faq1">Non consectetur a erat nam at lectus urna duis? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
-        <div id="faq1" class="collapse" data-parent=".faq-list">
+      <% @faq.each do |c, i|%>
+        <li>
+        <a data-toggle="collapse" class="collapsed" href="#faq1<%= c.id %>"><%= c.question%>? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+        <div id="faq1<%= c.id %>" class="collapse" data-parent=".faq-list">
           <p>
-            Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+          <%= c.answer%>
           </p>
         </div>
       </li>
-
-      <li>
-        <a data-toggle="collapse" href="#faq2" class="collapsed">Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
-        <div id="faq2" class="collapse" data-parent=".faq-list">
-          <p>
-            Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-          </p>
-        </div>
-      </li>
-
-      <li>
-        <a data-toggle="collapse" href="#faq3" class="collapsed">Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
-        <div id="faq3" class="collapse" data-parent=".faq-list">
-          <p>
-            Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
-          </p>
-        </div>
-      </li>
-
-      <li>
-        <a data-toggle="collapse" href="#faq4" class="collapsed">Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
-        <div id="faq4" class="collapse" data-parent=".faq-list">
-          <p>
-            Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-          </p>
-        </div>
-      </li>
-
-      <li>
-        <a data-toggle="collapse" href="#faq5" class="collapsed">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
-        <div id="faq5" class="collapse" data-parent=".faq-list">
-          <p>
-            Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
-          </p>
-        </div>
-      </li>
-
-      <li>
-        <a data-toggle="collapse" href="#faq6" class="collapsed">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
-        <div id="faq6" class="collapse" data-parent=".faq-list">
-          <p>
-            Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
-          </p>
-        </div>
-      </li>
+    <% end %>
 
     </ul>
-
-  </div>
 </section><!-- End Frequently Asked Questions Section -->
 
 

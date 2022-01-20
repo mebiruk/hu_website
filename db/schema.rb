@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_29_203526) do
+ActiveRecord::Schema.define(version: 2022_01_20_181058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,6 +104,20 @@ ActiveRecord::Schema.define(version: 2021_12_29_203526) do
     t.string "program_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "student_id"
+  end
+
+  create_table "branches", force: :cascade do |t|
+    t.string "location"
+    t.string "name"
+    t.integer "phone_number"
+    t.integer "second_phone_number"
+    t.string "email"
+    t.string "map"
+    t.bigint "college_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["college_id"], name: "index_branches_on_college_id"
   end
 
   create_table "career_opportunities", force: :cascade do |t|
@@ -119,6 +133,7 @@ ActiveRecord::Schema.define(version: 2021_12_29_203526) do
     t.text "background"
     t.text "mission", null: false
     t.text "vision", null: false
+    t.text "goal", null: false
     t.text "overview", null: false
     t.datetime "establishment_date", null: false
     t.integer "student_enrolled", null: false
@@ -147,13 +162,32 @@ ActiveRecord::Schema.define(version: 2021_12_29_203526) do
     t.string "last_updated_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "goal"
   end
 
   create_table "facuilties", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_facuilties_on_slug", unique: true
+  end
+
+  create_table "frequently_asked_questions", force: :cascade do |t|
+    t.text "question"
+    t.text "answer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
   create_table "marketing_sections", force: :cascade do |t|
@@ -173,6 +207,8 @@ ActiveRecord::Schema.define(version: 2021_12_29_203526) do
     t.string "published_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_news_on_slug", unique: true
   end
 
   create_table "programs", force: :cascade do |t|
@@ -189,7 +225,22 @@ ActiveRecord::Schema.define(version: 2021_12_29_203526) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "facuilty_id"
+    t.string "slug"
     t.index ["facuilty_id"], name: "index_programs_on_facuilty_id"
+    t.index ["slug"], name: "index_programs_on_slug", unique: true
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.string "name_of_organization"
+    t.string "email"
+    t.integer "phone_number"
+    t.string "student_fullname"
+    t.boolean "approve"
+    t.integer "track_number"
+    t.bigint "almuni_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["almuni_id"], name: "index_requests_on_almuni_id"
   end
 
   create_table "section_headlines", force: :cascade do |t|
@@ -228,6 +279,8 @@ ActiveRecord::Schema.define(version: 2021_12_29_203526) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_staffs_on_slug", unique: true
   end
 
   create_table "visitor_comments", force: :cascade do |t|
@@ -243,5 +296,7 @@ ActiveRecord::Schema.define(version: 2021_12_29_203526) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "branches", "colleges"
   add_foreign_key "programs", "facuilties"
+  add_foreign_key "requests", "almunis"
 end
