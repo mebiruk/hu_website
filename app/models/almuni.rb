@@ -12,6 +12,8 @@ class Almuni < ApplicationRecord
     has_one_attached :photo
 
     has_many :requests
+  extend FriendlyId
+  friendly_id :fullname, use: :slugged
 
   
   def generate_qr

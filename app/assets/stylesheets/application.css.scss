@@ -775,7 +775,7 @@ section {
 }
 .services .icon-box p {
   line-height: 24px;
-  font-size: 14px;
+  font-size: 16px;
   margin-bottom: 0;
 }
 .services .icon-box:hover {
@@ -1055,9 +1055,21 @@ section {
   background: #fff;
   box-shadow: 0px 2px 15px #47b2e4;
 }
-.team .member .member-img {
-  position: relative;
+.team .member .member-img{
   overflow: hidden;
+  // margin: 15px 15px 15px 15px;
+  position: relative;
+  max-height: 200px;
+}
+.team .member .member-img img{
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  position: center;
+  margin: auto;
+  display: block;
+  /*width: 300px;*/
+  transition: 0.5s;
 }
 .team .member .social {
   position: absolute;
@@ -1443,6 +1455,35 @@ section {
   100% {
     transform: rotate(360deg);
   }
+}
+.contact .info-box {
+  color: #444444;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
+  padding: 20px 0 30px 0;
+  border-radius: 4px;
+}
+
+.contact .info-box i {
+  font-size: 32px;
+  color: #036696;
+  border-radius: 50%;
+  padding: 8px;
+  border: 2px dotted #f8d4d5;
+}
+
+.contact .info-box h3 {
+  font-size: 20px;
+  color: #777777;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.contact .info-box p {
+  padding: 0;
+  line-height: 24px;
+  font-size: 14px;
+  margin-bottom: 0;
 }
 
 /*--------------------------------------------------------------
@@ -1949,8 +1990,69 @@ section {
 .form-comments,
 .box-comments,
 .widget-sidebar {
-    padding: 3rem;
+    padding: 1rem;
   }
+}
+.recent-blog-posts .post-box .post-img {
+  overflow: hidden;
+  margin: -30px -30px 15px -30px;
+  position: relative;
+  max-height: 200px;
+}
+
+.recent-blog-posts .post-box .post-img img {
+
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  position: center;
+  margin: auto;
+  display: block;
+  /*width: 300px;*/
+  transition: 0.5s;
+}
+
+.entry .post-img {
+  overflow: hidden;
+  margin: -30px -30px 15px -30px;
+  position: relative;
+  max-height: 500px;
+}
+.entry .post-img img {
+
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  position: center;
+  margin: auto;
+  display: block;
+  /*width: 300px;*/
+  transition: 0.5s;
+}
+
+.post-box .post-img {
+  overflow: hidden;
+  margin: -30px -30px 15px -30px;
+  position: relative;
+  max-height: 500px;
+}
+.post-box .post-img img {
+
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  position: center;
+  margin: auto;
+  display: block;
+  /*width: 300px;*/
+  transition: 0.5s;
+}
+.recent-blog-posts .post-box .post-date {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(1, 41, 112, 0.6);
+  display: block;
+  margin-bottom: 10px;
 }
 
 .blog-wrapper .article-title {
@@ -2772,6 +2874,6 @@ section {
 
 .card-img-top {
   width: 100%;
-  height: 15vw;
+  height: 30vw;
   object-fit: cover;
 }

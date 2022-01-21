@@ -1,16 +1,15 @@
   <main id="main">
 
-    <section id="blog" class="blog">
-    <section id="recent-blog-posts" class="recent-blog-posts mt-3"> 
+    <section id="blog" class="blog mt-0">
+    <section id="recent-blog-posts" class="recent-blog-posts mt-3 pt-0"> 
       <div class="container" data-aos="fade-up">
           <div class="entries">
-          <%= paginate @news %>
-          <div class="row">
+          <div class="row mt-5">
             <% @news.each do |n|%>
-                <div class="col-lg-4 mt-5" >
+                <div class="col-lg-4" >
                     <div class="post-box">
                       <div class="post-img"><%= image_tag n.photo %></div>
-                      <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="blog-single.html"><%= n.published_by.html_safe%></a></li>
+                      <li class=" align-items-center"><i class="icofont-user"></i> <a href="blog-single.html"><%= n.published_by.html_safe%></a></li>
                         <span class="post-date"><%= Date.parse(n.created_at.to_s).strftime('%A')%>, <%= Date.parse(n.created_at.to_s).to_formatted_s(:long)%></span>
                         <h3 class="post-title"><%= n.news_title.html_safe %></h3>
                         <p style="text-align: justify;"><%=truncate(n.overview.html_safe, :length=>256)%></p>
@@ -21,7 +20,7 @@
                 </div>
             <% end %>
     		</div>
-        <%= paginate @news %>
+        
             <%# <div class="blog-pagination mt-3">
               <ul class="justify-content-center">
                 <li class="disabled"><i class="icofont-rounded-left"></i></li>
@@ -32,7 +31,9 @@
               </ul>
             </div> %>
           </div>
+          <div class="d-flex justify-content-center"><span><%= paginate @news %></span></div>
 </section>
+
           <%# <div class="col-lg-4">
             <div class="sidebar">
               <h3 class="sidebar-title">Recent Events</h3>

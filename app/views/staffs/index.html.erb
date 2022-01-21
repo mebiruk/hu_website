@@ -4,7 +4,6 @@
     <section id="recent-blog-posts" class="recent-blog-posts mt-3"> 
       <div class="container" data-aos="fade-up">
           <div class="entries">
-            <%= paginate @staffs %>
               <div class="row">
                 <% @staffs.each do |staff|%>
                   <div class="col-lg-4">
@@ -20,7 +19,7 @@
                   </div>
                 <% end %>
               </div>
-            <%= paginate @staffs %>
+            <div class="d-flex justify-content-center"><span><%= paginate @staffs %></span></div>
           </div>
         </div>
     </section>

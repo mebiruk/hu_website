@@ -74,34 +74,34 @@
     	<%# </div> %> %>
     <%# </section> <!-- End Marketing --> %> %>
 
-	<section id="services" class="services">
+	  <section id="services" class="services">
       <div class="container" data-aos="fade-up">
         <div class="section-title">
           <h2>Programs at our <%= @facuilty.name %> facuilty</h2> 
         </div>
-      <section id="courses" class="courses">
-      <div class="container" data-aos="fade-up">
-
-      <div class="row">
-      <% @programs.each do |pro|%>
-        <div class="col-md-4 d-flex align-items-stretch">
-          <div class="card card-blog">
-            <%= image_tag pro&.photo, class: "card-img-top" %>
-            <div class="card-body d-flex flex-column">
-              <h6><span class="badge badge-secondary float-left mb-1"><%= pro.modality%></span></h6>
-              <h3 class="card-title font-weight-bold"><%= pro.program_name %></h3>
-              <p class="card-description text-justify">
-              <%= truncate(pro.overview.html_safe, length: 256)%> 
-              </p>
-              <%= link_to "Read More", program_path(pro), class: "readmore stretched-link mt-auto"%>
+        <section id="courses" class="courses">
+          <div class="container" data-aos="fade-up">
+            <div class="row">
+              <% @programs.each do |pro|%>
+                <div class="col-md-4 d-flex align-items-stretch">
+                  <div class="card card-blog">
+                    <%= image_tag pro&.photo, class: "card-img-top" %>
+                    <div class="card-body d-flex flex-column">
+                      <h6><span class="badge badge-secondary float-left mb-1"><%= pro.modality%></span></h6>
+                      <h3 class="card-title font-weight-bold"><%= pro.program_name %></h3>
+                      <p class="card-description text-justify">
+                      <%= truncate(pro.overview.html_safe, length: 256)%> 
+                      </p>
+                      <%= link_to "Read More", program_path(pro), class: "readmore stretched-link mt-auto"%>
+                    </div>
+                  </div>
+                </div>
+              <% end %>  
             </div>
           </div>
-        </div>
-      <% end %>  
-      </div>
-      </div>
-    </section>
-        </div>
+                <div class="d-flex justify-content-center"><span><%= paginate @programs %></span></div>
+
+        </section>
       </div>
     </section>
 

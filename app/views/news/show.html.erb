@@ -1,18 +1,8 @@
 
-  <main id="main">
-    <section class="breadcrumbs">
-  		<div class="container">
+  <main id="main ">
 
-        <ol>
-          <li><%=link_to "Home","/"%></li>
-          <li>News & Events</li>
-        </ol>
-        <h2>News & Events</h2>
 
-  		</div>
-  	</section>
-
-    <section id="blog" class="blog">
+    <section id="blog" class="blog mt-5">
       <div class="container" data-aos="fade-up">
         <div class="row">
           <div class="col-lg-8 entries">
@@ -46,7 +36,7 @@
               <div class="sidebar-item">
               <%@last_five_news.each do |news|%>
                 <div class="post-item clearfix">
-                  <h4><%= link_to news.news_title,news_path(news.id)%></h4>
+                  <h4><%= link_to news.news_title,news_path(news)%></h4>
                 </div>
               <%end%>
               </div>

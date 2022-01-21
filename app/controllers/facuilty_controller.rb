@@ -2,11 +2,12 @@ class FacuiltyController < ApplicationController
     before_action :set_facuilty, only: %i[ show edit update destroy ]
     def index
         Facuilty.all
+        @news = News.order('created_at DESC').page params[:page]
     end
     def show
         @marketing = MarketingSection.all
-        @programs = Program.where(facuilty_id: params[:id])
-        
+        # @programs = Program.where(facuilty_id: params[:id])
+        @programs = Program.where(facuilty_id: params[:id]).order('created_at DESC').page params[:page]
         @facuilty = Facuilty.friendly.find(params[:id])
     end
 

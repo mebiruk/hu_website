@@ -31,8 +31,7 @@
             </p>
             <ul>
               <li><i class="ri-check-double-line"></i> <%= Time.now.year - @college.establishment_date.year %> Years Of Academic Services</li>
-              <li><i class="ri-check-double-line"></i> <%= @college.number_of_prorgam %> Number of Programs</li>
-              <li><i class="ri-check-double-line"></i> <%= @college.distance_center %> Branches</li>
+              <li><i class="ri-check-double-line"></i> <%= @college.number_of_prorgam %> Programs</li>
               <li><i class="ri-check-double-line"></i> <%= @college.student_enrolled %> Students</li>
             </ul>
           </div>
@@ -59,7 +58,7 @@
                 <div class="icon-box">
                   <h4><a href=""><%= pro.program_name%></a></h4>
                   <p class="text-justify"><%= truncate(pro.overview.html_safe, length: 256)%></p>
-                  <%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
+                  <%= link_to "Read More", program_path(pro), class: "readmore stretched-link mt-auto"%>
                 </div>
               </div>
             <% end %>
@@ -156,7 +155,7 @@
         </div>
         <div class="row">
         <% @news.each do |n|%>
-          <div class="col-md-4 d-flex align-items-stretch">
+          <div class="col-md-4 col-sm-6 align-items-stretch">
             <div class="card card-blog">
               <a href=""><%= image_tag n.photo, class: "card-img-top" %></a>
               <div class="card-body d-flex flex-column">
