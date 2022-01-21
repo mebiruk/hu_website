@@ -54,10 +54,10 @@
         <div class="row">
           <% if Program.where(study_level: 'undergraduate') != nil %>
             <%Program.where(study_level: 'undergraduate').each do |pro|%>
-              <div class="col-lg-4 col-md-6 mb-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+              <div class="col-lg-4 col-md-6 mb-3 align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
                 <div class="icon-box">
                   <h4><a href=""><%= pro.program_name%></a></h4>
-                  <p class="text-justify"><%= truncate(pro.overview.html_safe, length: 256)%></p>
+                  <p class="text-justify"><%= pro.overview.truncate(256).html_safe%></p>
                   <%= link_to "Read More", program_path(pro), class: "readmore stretched-link mt-auto"%>
                 </div>
               </div>
@@ -67,7 +67,7 @@
       </div>
     </section>
 
-    <section id="services" class="services section-bg">
+    <section id="featured-services" class="featured-services">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -80,9 +80,9 @@
             <% @admissions.each do |admission| %>
               <div class="col-xl-3 col-md-6 align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                 <div class="icon-box">
-                  <%# <div class="icon"><i class="bx bxl-dribbble"></i></div> %>
-                  <h4><a href="admissions/<%= admission.id%>"><%= admission.admission_name %></a></h4>
-                  <p><%= admission.modality %> <%= admission.study_level%></p>
+                <i class="bi bi-alarm"></i>
+                  <h4 class="title"><a href="admissions/<%= admission.id%>"><%= admission.admission_name %></a></h4>
+                  <p class="description"><%= admission.modality %> <%= admission.study_level%></p>
                 </div>
               </div>
             <% end %>
@@ -99,10 +99,10 @@
         <div class="row">
         <% if Program.where(study_level: 'graduate') != nil %>
 			    <%Program.where(study_level: 'graduate').each do |pro|%>
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
+            <div class="col-lg-4 col-md-6 align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
               <div class="icon-box">
                 <h4><a href=""><%= pro.program_name%></a></h4>
-                <p class="text-justify"><%= truncate(pro.overview.html_safe, length: 256)%></p>
+                <p class="text-justify"><%= pro.overview.truncate(256).html_safe%></p>
                 <%= link_to "Read More", program_path(pro.id), class: "readmore stretched-link mt-auto"%>
               </div>
             </div>
@@ -162,7 +162,7 @@
                 <span class="post-date"><%= Date.parse(n.created_at.to_s).strftime('%A')%>, <%= Date.parse(n.created_at.to_s).to_formatted_s(:long)%></span>
                 <h3 class="card-title"><a href=""><%= n.news_title %></a></h3>
                 <p class="card-description text-justify">
-                  <%= truncate(n.overview.html_safe, length: 256) %>
+                  <%= n.overview.truncate(256).html_safe %>
                 </p>
                 <%= link_to "Read More", news_path(n.id), class: "readmore stretched-link mt-auto"%>
               </div>
