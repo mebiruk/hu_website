@@ -52,40 +52,28 @@
 			<div class="row">
 			  <% @branches.each do |c|%>
   				<div class="col-lg-4 mt-5">
-					<div class="card" style="width: 20rem;">
+					<div class="card">
 						<div class="card-header bg-secondary text-white">
 							<%= c.name %>
 						</div>
 						<ul class="list-group list-group-flush">
 							<div class="row">
-								<div class="col-sm-1 border-bottom ml-3">
-									<li class="bx bxs-map-alt mt-3 ml-1"></li>
-								</div>
 								<div class="col-lg-10 border-right-0">
 									<li class="list-group-item border-right-0"><%= c.location %></li>
 								</div>
 							</div>	
 							<div class="row">
-								<div class="col-sm-1 border-bottom ml-3">
-									<li class="bx bx-mobile mt-3 ml-1 "></li>
-								</div>
 								<div class="col-lg-10 border-white">
 									<li class="list-group-item border-right-0"><%= c.phone_number %></li>
 								</div>
 							</div>	
 							<div class="row">
-								<div class="col-sm-1 border-bottom ml-3">
-									<li class="bx bxs-phone-call mt-3 ml-1 "></li>
-								</div>
 								<div class="col-lg-10">
 									<li class="list-group-item border-right-0"><%= c.second_phone_number %></li>
 								</div>
 							</div>
 
 							<div class="row">
-								<div class="col-sm-1 border-bottom ml-3">
-									<li class="bx bxs-chat mt-3 ml-1 "></li>
-								</div>
 								<div class="col-lg-10">
 									<li class="list-group-item border-right-0"><%= c.email %></li>
 								</div>

@@ -205,7 +205,6 @@
     </div>
   </section>
   
-</section>
 <!-- ======= Departments Section ======= -->
 
 <section id="team" class="team section-bg pt-0">
@@ -217,7 +216,7 @@
 
         <div class="row">
           <% @staff.where.not(job_title: 'PRESIDENT').where.not(job_title: 'Vice PRESIDENT').each do |s|%>
-            <div class="col-lg-4 col-md-6 align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-4 d-flex col-md-6 align-items-stretch" data-aos="fade-up" data-aos-delay="100">
               <div class="member">
                 <div class="member-img">
                   <%= image_tag s.photo, class: "img-fluid"%>
@@ -236,29 +235,28 @@
     </section>
 
     <section id="about" class="about section-bg">
-  <div class="container" data-aos="fade-up">
-    <div class="row no-gutters">
-      <div class="content col-xl-6 d-flex align-items-stretch">
-      <% @staff.where(job_title: 'Vice PRESIDENT').each do |s|%>
-            <div class="content col-xl-12 d-flex align-items-stretch">
-              <div class="content">
-                <h3>Vice PRESIDENTS MESSAGE</h3>
-                <p>
-                  <%= s.message.html_safe %>
-                </p>
-                <p>
-                  <strong class="text-right"></strong> Congratulations once again!
-                </p>
-              </div>
+    <div class="container" data-aos="fade-up">
+      <div class="row no-gutters">
+        <% @staff.where(job_title: 'Vice PRESIDENT').each do |s|%>
+          <div class="content col-xl-7 ml-5 d-flex align-items-stretch">
+            <div class="content">
+              <h3>Vice PRESIDENTS MESSAGE</h3>
+              <p>
+                <%= s.message.html_safe %>
+              </p>
+              <p>
+                <strong class="text-right"></strong> Congratulations once again!
+              </p>
             </div>
-            <div class="col-xl-6 d-flex align-items-stretch mt-5" >
-              <%= image_tag s.photo, class: "img-fluid"%>
-            </div>
-          <%end%>
-     
+          </div>
+          <div class="col-xl-4 d-flex align-items-stretch mt-5" >
+            <%= image_tag s.photo, class: "img-fluid mr-2" %>
+          </div>
+        <%end%>
+    </div>
   </div>
-</div>
 </section>
+
 <!-- End Team Section -->
 
 <!-- ======= Portfolio Section ======= -->

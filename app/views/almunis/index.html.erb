@@ -1,17 +1,12 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
-  <main id="main">
-    <section >
-    <div><p id="notice" class="bg-success"><%= notice %></p> </div>
-    </section>
-    
+  <main id="main">    
     <section id="recent-blog-posts" class="recent-blog-posts">
 
       <div class="container aos-init aos-animate" data-aos="fade-up">
 
         <header class="section-header">
           <!-- <h2>Programs</h2> -->
-          <div>
-                 <p id="notice" class="bg-success"><%= notice %></p>  
+          <div class="mt-5">
             <div class="col-md-6 offset-md-3">
               <%= search_form_for(@request, html: { class: "input-group form-sm form-1 pl-0" }, url: almunis_path) do |f| %>
                <%= f.search_field :track_number_eq, class: "form-control my-0 py-1",placeholder: "Search by Request code "   %>
