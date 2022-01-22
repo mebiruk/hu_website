@@ -44,6 +44,9 @@
 //= require isotope.pkgd.min.js
 //= require venobox.min.js
 //= require aos.js
+//= require bootstrap.min.js
+//= jquery-3.5.1.min.js
+
 
 $(document).on('turbolinks:load', function () {
   // Smooth scroll for the navigation menu and links with .scrollto classes
@@ -78,7 +81,17 @@ $(document).on('turbolinks:load', function () {
       }
     }
   });
-
+  $(document).ready(function(){
+    var url = $("#cartoonVideo").attr('src');
+    
+    $("#myModal").on('hide.bs.modal', function(){
+        $("#cartoonVideo").attr('src', '');
+    });
+    
+    $("#myModal").on('show.bs.modal', function(){
+        $("#cartoonVideo").attr('src', url);
+    });
+});
   // Activate smooth scroll on page load with hash links in the url
   $(document).ready(function () {
     if (window.location.hash) {
