@@ -237,7 +237,7 @@ $(document).on('turbolinks:load', function () {
         items: 1
       },
       900: {
-        items: 2
+        items: 3
       },
       1400: {
         items: 3

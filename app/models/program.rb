@@ -17,7 +17,7 @@ class Program < ApplicationRecord
 	belongs_to :facuilty
 	
 	has_many :career_opportunities
-
+	accepts_nested_attributes_for :career_opportunities, :allow_destroy => true
  	 has_one_attached :photo
 
 	extend FriendlyId
