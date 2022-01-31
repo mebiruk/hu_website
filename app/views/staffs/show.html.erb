@@ -9,6 +9,7 @@
           <%# <% @news do |n|%>
             <article class="entry">
             <div><%= image_tag @staff.photo, class: "img-fluid" %></div>
+            <h3 class="mt-3"><strong><%= @staff.fullname %></strong></h3>
               <div class="entry-content">
                 <p style="text-align: justify;"><%= @staff.message.html_safe%></p>  
               </div>
