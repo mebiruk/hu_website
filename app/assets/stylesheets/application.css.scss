@@ -753,6 +753,7 @@ section {
 .services .icon-box {
   box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
   padding: 50px 30px;
+  height: 350px;
   transition: all ease-in-out 0.4s;
   background: #fff;
 }
@@ -1702,6 +1703,19 @@ section {
 .testimonials .testimonials-carousel, .testimonials .testimonials-slider {
   overflow: hidden;
 }
+.testimonials .testimonial-wrap {
+  padding-left: 50px;
+  height:400px;
+  scrollbar-width: none;
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll; 
+  
+}
+.testimonials .testimonial-wrap::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
 .testimonials .testimonial-item {
   box-sizing: content-box;
   padding: 10px 10px 0 10px;

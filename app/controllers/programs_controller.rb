@@ -11,6 +11,7 @@ class ProgramsController < ApplicationController
   def show
     @programs = Program.find(params[:id])
     @marketing = MarketingSection.all
+    @careerOpportunity = CareerOpportunity.all
   end
 
   # GET /programs/new
