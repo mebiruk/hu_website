@@ -11,6 +11,7 @@ class PagesController < ApplicationController
   def contact
     @branches=Branch.all
     @faq= FrequentlyAskedQuestion.all
+    @marketing = MarketingSection.all
   end
 
   def about
@@ -20,18 +21,12 @@ class PagesController < ApplicationController
     @accreditations = Accreditation.all
     @comment = VisitorComment.all
     @marketing = MarketingSection.all
-    @news = News.order('created_at DESC').first(6)
+    @news = News.where(publish: true).order('created_at DESC').first(6)
     @faq= FrequentlyAskedQuestion.all
   end
 
   def accreditation
   	@accreditations = Accreditation.all
     @marketing = MarketingSection.all
-  end
-  def new
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 end

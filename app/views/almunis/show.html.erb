@@ -1,13 +1,23 @@
 <main id="main">
-
-	<section id="recent-blog-posts" class="recent-blog-posts">
+	<section class="breadcrumbs">
+		<div class="container">
+			<ol>
+				<li><%=link_to "Home","/"%></li>
+				<li>Almunis Directory</li>
+			</ol>
+			<h2><%= @almuni.fullname%></h2>
+			</div>
+          </div>
+		</div>
+	</section>
+    <section id="recent-blog-posts" class="recent-blog-posts">
 
       <div class="container aos-init aos-animate" data-aos="fade-up">
 
         <div class="row">
-          <div class="col-lg-12" style="padding-right: 5px;">
+          <div class="col-lg-3" style="padding-right: 5px;">
             <div class="post-box">
-              <div class="post-img" style="width:300px;"><%= link_to image_tag(@almuni.documents[0]), @almuni.documents[0] %></div>
+              <div class="post-img"><%= link_to image_tag(@almuni.documents[0],size:"280x800", class: "img-fluid"), @almuni.documents[0] %></div>
               
               <h3 class="post-title"><%= @almuni.fullname%></h3>
               <span class="post-date"><strong>Modality:- <%= @almuni.modality.html_safe%> </strong></span>
@@ -23,5 +33,7 @@
       </div>
 
     </section>
+            
+  
 
 </main>

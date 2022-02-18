@@ -7,6 +7,4 @@ class News < ApplicationRecord
 
 	extend FriendlyId
     friendly_id :news_title
-
-	
 end

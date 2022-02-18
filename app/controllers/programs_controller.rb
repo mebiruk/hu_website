@@ -5,6 +5,7 @@ class ProgramsController < ApplicationController
   def index
     @programs = Program.all
     @marketing = MarketingSection.all
+  
   end
 
   # GET /programs/1 or /programs/1.json
@@ -63,7 +64,7 @@ class ProgramsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_program
-      @program = Program.friendly.find(params[:id])
+      @program = Program.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

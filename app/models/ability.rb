@@ -20,17 +20,17 @@ class Ability
         can :manage, Accreditation
         can :manage, Admission
         can :manage, Almuni
-        # can :manage, Branch
+        can :manage, HowTo
         can :manage, CareerOpportunity
-        can :manage, FrequentlyAskedQuestion
         can :manage, MarketingSection
         can :manage, News
         can :manage, Request
+        can :manage, Step
         can :manage, SectionHeadline
         can :manage, Service
         can :manage, Staff
         can :manage, VisitorComment
-        can :manage, Facuilty
+        can :manage, FrequentlyAskedQuestion
     when "finance"
         can :manage, ActiveAdmin::Page, name: "Dashboard", namespace_name: "admin"
         can :manage, Program

@@ -1,34 +1,0 @@
-{:uriI"€file:///var/lib/gems/2.7.0/gems/ckeditor_rails-4.16.3/vendor/assets/javascripts/ckeditor/plugins/exportpdf/tests/manual/paperformat.html?type=text/html&id=1d335356db112794842717f2f445afe91b4553ecc716eb0d19c5abbc19406801:ET:load_pathI"M/var/lib/gems/2.7.0/gems/ckeditor_rails-4.16.3/vendor/assets/javascripts;T:filenameI"Å/var/lib/gems/2.7.0/gems/ckeditor_rails-4.16.3/vendor/assets/javascripts/ckeditor/plugins/exportpdf/tests/manual/paperformat.html;T:	nameI"8ckeditor/plugins/exportpdf/tests/manual/paperformat;T:logical_pathI"=ckeditor/plugins/exportpdf/tests/manual/paperformat.html;T:content_typeI"text/html;T:sourceI"‹<div id="editor1">
-	<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-		sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-		irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-		Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-	</p>
-</div>
-
-<div id="editor2">
-	<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-		sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-		irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-		Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-	</p>
-</div>
-
-<script>
-	exportPdfUtils.initManualTest();
-
-	CKEDITOR.replace( 'editor1', exportPdfUtils.getDefaultConfig( 'manual' ) );
-
-	CKEDITOR.replace( 'editor2', exportPdfUtils.getDefaultConfig( 'manual', {
-		exportPdf_options: {
-			format: 'A6'
-		}
-	} ) );
-</script>
-;T:metadata{	:dependencieso:Set:
-@hash}
-I"environment-version;TTI"environment-paths;TTI"rails-env;TTI"2processors:type=text/html&file_type=text/html;TTI"èfile-digest:///var/lib/gems/2.7.0/gems/ckeditor_rails-4.16.3/vendor/assets/javascripts/ckeditor/plugins/exportpdf/tests/manual/paperformat.html;TTF:charsetI"
-utf-8;F:digest"%{|“Í‹\9)è·∂OWg¨x}+Ì$!˜∏øG_¿ı:lengthi‹:dependencies_digest"%Ù¯ ﬁ	Œ&ã<(RñŸ#ÉâµŸwÚ·ßJ-é$Ä:idI"E1d335356db112794842717f2f445afe91b4553ecc716eb0d19c5abbc19406801;F:
-mtimel+©éña

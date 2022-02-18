@@ -68,7 +68,7 @@ class AlmunisController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_almuni
-      @almuni = Almuni.friendly.find(params[:id])
+      @almuni = Almuni.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

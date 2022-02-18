@@ -1,10 +1,11 @@
-  <main id="main" class="mt-5">
-  
+  <main id="main">
+  	<!-- ======= Portfolio Section ======= -->
   	<section id="portfolio" class="portfolio">
   		<div class="container" data-aos="fade-up">
 
   			<div class="section-title">
   				<h2>Accreditations</h2>
+  				<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p>
   			</div>
 
   			<div class="row" data-aos="fade-up" data-aos-delay="100">
@@ -13,162 +14,38 @@
   						<li data-filter="*" class="filter-active">All</li>
   						<li data-filter=".online">Online Programs</li>
   						<li data-filter=".regular">Regular Programs</li>
-  						<%# <li data-filter=".distance">Distance Programs</li> %>
+  						<li data-filter=".distance">Distance Programs</li>
   						<li data-filter=".extention">Extientions Programs</li>
   					</ul>
   				</div>
   			</div>
 
   			<div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-					<% @accreditations.each do |a|%>
-						<div class="col-lg-4 col-md-6 portfolio-item <%= a.modality%>">
-							<div class="portfolio-wrap">
-								<% if a.accreditation_documents[0].blank? %>
-									<div class="portfolio-info">
-										<h4>Data Not Found</h4>
+          <% @accreditations.each do |a|%>
+    				<div class="col-lg-4 col-md-6 portfolio-item <%= a.modality.html_safe%>">
+    					<div class="portfolio-wrap">
+							<% if a.accreditation_documents[0].blank? %>
+								<div class="portfolio-info">
+									<h4>Data Not Found</h4>
+								</div>
+							<% else %>
+								<%= image_tag a.accreditation_documents[0], class: "img-fluid"%>
+								<div class="portfolio-info">
+									<h4><%= a.accreditation_title.html_safe%></h4>
+									<p><%= a.modality.html_safe%></p>
+									<div class="portfolio-links">
+										<%= link_to '<i class="bx bx-plus"></i>'.html_safe, a.accreditation_documents[0], {'data-gall': "portfolioGallery",class: "venobox", title: a.accreditation_title.html_safe}%>
 									</div>
-								<% else %>
-									<%= image_tag a.accreditation_documents[0], class: "img-fluid"%>
-									<div class="portfolio-info">
-										<h4><%= a.accreditation_title%></h4>
-										<p><%= a.modality%></p>
-										<div class="portfolio-links">
-											<%= link_to '<i class="bx bx-plus"></i>'.html_safe, a.accreditation_documents[0], {'data-gall': "portfolioGallery",class: "venobox", title: a.accreditation_title}%>
-										</div>
-									</div>
-								<% end %>
-							</div>
-						</div>
-					<%end%>
-	
-  				<!-- <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-  					<div class="portfolio-wrap">
-  						<%= image_tag "a1.jpg", class: "img-fluid"%>
-  						<div class="portfolio-info">
-  							<h4>Web 3</h4>
-  							<p>Web</p>
-  							<div class="portfolio-links">
-  								<a href="assets/img/a1.jpg" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="bx bx-plus"></i></a>
-  								<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-  							</div>
-  						</div>
-  					</div>
-  				</div>
-
-  				<div class="col-lg-4 col-md-6 portfolio-item filter-app">
-  					<div class="portfolio-wrap">
-  						<%= image_tag "a1.jpg", class: "img-fluid"%>
-  						<div class="portfolio-info">
-  							<h4>App 2</h4>
-  							<p>App</p>
-  							<div class="portfolio-links">
-  								<a href="assets/img/a1.jpg" data-gall="portfolioGallery" class="venobox" title="App 2"><i class="bx bx-plus"></i></a>
-  								<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-  							</div>
-  						</div>
-  					</div>
-  				</div>
-
-  				<div class="col-lg-4 col-md-6 portfolio-item filter-card">
-  					<div class="portfolio-wrap">
-  						<%= image_tag "a1.jpg", class: "img-fluid"%>
-  						<div class="portfolio-info">
-  							<h4>Card 2</h4>
-  							<p>Card</p>
-  							<div class="portfolio-links">
-  								<a href="assets/img/a1.jpg" data-gall="portfolioGallery" class="venobox" title="Card 2"><i class="bx bx-plus"></i></a>
-  								<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-  							</div>
-  						</div>
-  					</div>
-  				</div>
-
-  				<div class="col-lg-4 col-md-6 portfolio-item filter-web">
-  					<div class="portfolio-wrap">
-  						<%= image_tag "a1.jpg", class: "img-fluid"%>
-  						<div class="portfolio-info">
-  							<h4>Web 2</h4>
-  							<p>Web</p>
-  							<div class="portfolio-links">
-  								<a href="assets/img/a1.jpg" data-gall="portfolioGallery" class="venobox" title="Web 2"><i class="bx bx-plus"></i></a>
-  								<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-  							</div>
-  						</div>
-  					</div>
-  				</div>
-
-  				<div class="col-lg-4 col-md-6 portfolio-item filter-app">
-  					<div class="portfolio-wrap">
-  						<%= image_tag "a1.jpg", class: "img-fluid"%>
-  						<div class="portfolio-info">
-  							<h4>App 3</h4>
-  							<p>App</p>
-  							<div class="portfolio-links">
-  								<a href="assets/img/a1.jpg" data-gall="portfolioGallery" class="venobox" title="App 3"><i class="bx bx-plus"></i></a>
-  								<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-  							</div>
-  						</div>
-  					</div>
-  				</div>
-
-  				<div class="col-lg-4 col-md-6 portfolio-item filter-card">
-  					<div class="portfolio-wrap">
-  						<%= image_tag "a1.jpg", class: "img-fluid"%>
-  						<div class="portfolio-info">
-  							<h4>Card 1</h4>
-  							<p>Card</p>
-  							<div class="portfolio-links">
-  								<a href="assets/img/a1.jpg" data-gall="portfolioGallery" class="venobox" title="Card 1"><i class="bx bx-plus"></i></a>
-  								<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-  							</div>
-  						</div>
-  					</div>
-  				</div>
-
-  				<div class="col-lg-4 col-md-6 portfolio-item filter-card">
-  					<div class="portfolio-wrap">
-  						<%= image_tag "a1.jpg", class: "img-fluid"%>
-  						<div class="portfolio-info">
-  							<h4>Card 3</h4>
-  							<p>Card</p>
-  							<div class="portfolio-links">
-  								<a href="assets/img/a1.jpg" data-gall="portfolioGallery" class="venobox" title="Card 3"><i class="bx bx-plus"></i></a>
-  								<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-  							</div>
-  						</div>
-  					</div>
-  				</div>
-
-  				<div class="col-lg-4 col-md-6 portfolio-item filter-web">
-  					<div class="portfolio-wrap">
-  						<%= image_tag "a1.jpg", class: "img-fluid"%>
-  						<div class="portfolio-info">
-  							<h4>Web 3</h4>
-  							<p>Web</p>
-  							<div class="portfolio-links">
-  								<a href="assets/img/a1.jpg" data-gall="portfolioGallery" class="venobox" title="Web 3"><i class="bx bx-plus"></i></a>
-  								<a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-  							</div>
-  						</div>
-  					</div>
-  				</div> -->
+								</div>
+							<% end %>
+    					</div>
+    				</div>
+          <%end%>
 
   			</div>
 
   		</div>
   	</section><!-- End Portfolio Section -->
-  	
-  	<section id="cta1" class="cta1">
-  		<div class="container aos-init aos-animate " data-aos="zoom-in">
-			<% @marketing.where(page_to_display: 'accreditation').each do |m|%>
-				<div class="text-center">
-					<h3><%= m.headline_title%></h3>
-					<p><%= m.description%></p>
-					<a class="cta1-btn" href="<%= m.action%>">Learn more</a>
-				</div>
-			<% end %>
-  		</div>
-  	</section>
   	
 
 

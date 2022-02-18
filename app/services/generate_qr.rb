@@ -14,7 +14,7 @@ class GenerateQr < ApplicationService
             action: 'show',
             id: almuni.id,
             only_path: false,
-            host: 'heuc.edu.et',
+            host: 'heuc@edu.et',
             protocol: 'https',
             source: 'from_qr'
             )

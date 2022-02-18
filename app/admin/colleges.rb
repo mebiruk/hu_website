@@ -33,7 +33,7 @@ ActiveAdmin.register College do
       f.input :student_enrolled
       f.input :distance_center
       f.input :number_of_prorgam
-      # f.input :video_link
+      f.input :video_link
     end
 
     f.inputs "College address" do
@@ -105,9 +105,9 @@ ActiveAdmin.register College do
         row :phone_number
         row :alternative_phone_number
         row :email 
-        # row "map", class: "video-responsive" do |s|
-        #   s.map_embed.html_safe
-        # end
+        row "map", class: "video-responsive" do |s|
+          s.map_embed.html_safe
+        end
         row :facebook_handle
         row :twitter_handle
         row :instagram_handle

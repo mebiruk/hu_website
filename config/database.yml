@@ -24,8 +24,8 @@ default: &default
 development:
   <<: *default
   database: yic_development
-  username: eniyew
-  password: abeba
+  username: postgres
+  password: postgres
   host: localhost
   port: 5432
 
@@ -62,9 +62,9 @@ development:
 test:
   <<: *default
   database: yic_test
-  username: eniyew
-  password: abeab
-  host: localhost
+  username: postgres
+  password: postgres
+  host: localhost:3000
   port: 5432
 
 # As with config/secrets.yml, you never want to store sensitive information,
@@ -86,3 +86,8 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+production:
+  <<: *default
+  database: yic_production
+  username: postgres
+  password: postgres

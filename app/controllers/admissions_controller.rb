@@ -10,6 +10,7 @@ class AdmissionsController < ApplicationController
   # GET /admissions/1 or /admissions/1.json
   def show
     @marketing = MarketingSection.all
+    @programs = Program.all
   end
 
   # GET /admissions/new
@@ -61,7 +62,7 @@ class AdmissionsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admission
-      @admission = Admission.find(params[:id])
+      @admission = Admission.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

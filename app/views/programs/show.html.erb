@@ -1,12 +1,4 @@
-
   <main id="main">
-
-    <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs mt-5" data-aos="fade-in">
-      <div class="container mt-5">
-           <%= @programs.program_name.html_safe %>
-      </div>
-    </div><!-- End Breadcrumbs -->
 
     <!-- ======= Cource Details Section ======= -->
     <section id="course-details" class="course-details">
@@ -14,15 +6,20 @@
 
         <div class="row">
           <div class="col-lg-8">
+          <h2><%= @programs.program_name.html_safe %></h2>
           <%= image_tag @programs.photo, class: "img-fluid" %>
-            <h3><%= @programs.program_name %></h3>
+            <h3><%= @programs.program_name.html_safe %></h3>
             <%= @programs.program_description.html_safe %>
           </div>
           <div class="col-lg-4">
             <div>
+
+              <div class="course-info d-flex justify-content-between align-items-center bg-primary">
+                <h3>Program Info</h3>
+              </div>
               <div class="course-info d-flex justify-content-between align-items-center">
                 <h5>Study Level</h5>
-                <%= @programs.study_level %>
+                <%= @programs.study_level.html_safe %>
               </div>
               <div class="course-info d-flex justify-content-between align-items-center">
                 <h5>Program Duration</h5>
@@ -32,7 +29,7 @@
 
               <div class="course-info d-flex justify-content-between align-items-center">
                 <h5>modality</h5>
-                <%= @programs.modality %>
+                <%= @programs.modality.html_safe %>
               </div>
 
               <div class="course-info d-flex justify-content-between align-items-center">
@@ -46,13 +43,12 @@
               </div>
 
               <div class="course-info d-flex justify-content-between align-items-center">
-                <h5>Credit hour</h5>
-                <%= @programs.credit_hour %> 
+                <h5>Credit Hour</h5>
+                <%= @programs.credit_hour %>
               </div>
-
-            </div>
+            <div>
             <div class="mt-5">
-                <div class="course-info d-flex justify-content-between align-items-center">
+                <div class="course-info d-flex justify-content-between align-items-center bg-primary">
                   <h3>Career Opportunities</h3>
                 </div>
                 <% @careerOpportunity.where(program_id: @programs.id).each do |career| %>
@@ -63,6 +59,7 @@
               
             </div>
           </div>
+          
         </div>
 
       </div>
@@ -73,3 +70,6 @@
     </section><!-- End Cource Details Tabs Section -->
 
   </main>
+  
+	
+	

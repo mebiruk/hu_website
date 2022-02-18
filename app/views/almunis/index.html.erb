@@ -1,25 +1,39 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
-  <main id="main">    
+  <main id="main">
+    <section class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><%=link_to "Home","/"%></li>
+          <li>Almunis Directory</li>
+        </ol>
+        <h2>Almunis Directory</h2>
+
+      </div>
+    </section>
+    
     <section id="recent-blog-posts" class="recent-blog-posts">
 
       <div class="container aos-init aos-animate" data-aos="fade-up">
 
         <header class="section-header">
           <!-- <h2>Programs</h2> -->
-          <div class="mt-5">
+          <div>
+                   
             <div class="col-md-6 offset-md-3">
               <%= search_form_for(@request, html: { class: "input-group form-sm form-1 pl-0" }, url: almunis_path) do |f| %>
-               <%= f.search_field :track_number_eq, class: "form-control my-0 py-1",placeholder: "Search by Request code "   %>
+               <%= f.search_field :track_number_eq, class: "form-control my-0 py-1 rounded",placeholder: "Search by Request Code "   %>
                       <div class="input-group-prepend bg-primary">
-                      <%= f.submit "Search", class: "icofont-search btn btn-primary" %>
-                      </div>
+                        <%= f.submit "Search", class: "icofont-search btn btn-primary text-light" %>
+                        </div>
                       <%end%>
                       </div>
             <%if @requests%>   
             <% if @requests.length==0%>  
-            <p class="d-flex justify-content-center"><br> wrong Request code</p>   
+            <p class="mt-5"> Wrong Request Code</p>   
             <%else%>
-            <table class="table table-bordered mt-5 table-hover col-8 center" style="margin-left:auto;margin-right:auto;">
+            <div class="container ml-5">
+              <table class="table table-bordered mt-5 table-hover col-8 center" style="margin-left:auto;margin-right:auto;">
                 <thead class="thead-dark">
                   <tr>
                     <th scope="col">Studet Full name</th>
@@ -39,27 +53,29 @@
                   <%end%>
                 </tbody>
               </table>
-        <%end%>
-        <%end%>
+            </div>
+            <%end%>
+          <%end%>
           </div>
         </header>
 
       </div>
 
     </section>
-            <!-- ======= Document Verification Section ======= -->
+            <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
     	<div class="container" data-aos="fade-up">
 
     		<div class="section-title">
     			<h2>Document Verification Request</h2>
     			</div>
-          <% if notice.nil? %>
-          <% else %>
-            <div> <p class="rounded notice bg-success pt-2 pb-2 pl-5 font-weight-bold text-center text-light"><%= notice %></p></div>
-          <% end %>
-  
+        <% if notice.nil? %>
+        <% else %>
+			    <div> <p class="rounded notice bg-success pt-2 pb-2 pl-5 font-weight-bold text-center text-light"><%= notice %></p></div>
+        <% end %>
+
     		<div class="row" data-aos="fade-up" data-aos-delay="100">
+
     			<div class="col-lg-12">
 					<%= simple_form_for(Request.new, url: request_path, html: { class: 'php-email-form'}) do |f| %>
 						<div class="form-row">
@@ -90,7 +106,7 @@
     						<div class="error-message"></div>
     						<div class="sent-message">Your request has been sent. Thank you!</div>
     					</div>
-						<%= f.submit 'Submit', class: 'btn btn-primary'%>
+						<%= f.submit 'Submit', class: 'btn btn-primary  text-light'%>
     					<% end %>
     			</div>
     		</div>

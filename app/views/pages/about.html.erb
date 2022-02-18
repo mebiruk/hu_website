@@ -1,460 +1,240 @@
-<head>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-
-</head>
-  <main id="main">
-
-    <section id="counts" class="counts mt-5" data-aos="zoom-in">
-      <div class="container mt-5" data-aos="zoom-in">
-
-        <div class="row mt-5">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="count-box">
-              <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="342" data-purecounter-duration="1" class="purecounter"><%= Time.now.year - @college.establishment_date.year %></span>
-              <p>Years of experience</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
-            <div class="count-box">
-              <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"><%= @college.number_of_prorgam%></span>
-              <p>Programs</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-            <div class="count-box">
-              <i class="bi bi-headdset"></i>
-              <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"><%= @college.distance_center%></span>
-              <p>Branches</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
-            <div class="count-box">
-              <i class="bi bi-people"></i>
-              <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"><%= @college.student_enrolled%></span>
-              <p>Enrolled Students</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-    
-      <section id="featured-services" class="featured-services">
-      <div class="container" data-aos="fade-up">
-        <div class="section-title">
-          <h2>Check our Services</h2>
-        </div>
-        <div class="row">
-          <% @service.each do |s|%>
-            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-              <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-                <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                <h4 class="title"><a href=""><%= s.service_name%></a></h4>
-                <p class="description"><%= s.service_overview.html_safe%></p>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </section>
-
-    <section id="departments" class="departments">
-  		<div class="container">
-
-  			<div class="section-title">
-  				<h2>More about us</h2>
-  			</div>
-
-  			<div class="row">
-  				<div class="col-lg-3">
-  					<ul class="nav nav-tabs flex-column">
-  						<li class="nav-item">
-  							<a class="nav-link active show" data-bs-toggle="tab" href="#tab-12">Overview</a>
-  						</li>
-  						<li class="nav-item">
-  							<a class="nav-link" data-bs-toggle="tab" href="#tab-22">History</a>
-  						</li>
-  						<li class="nav-item">
-  							<a class="nav-link" data-bs-toggle="tab" href="#tab-32">Mission & Vision</a>
-  						</li>
-  						<li class="nav-item">
-  							<a class="nav-link" data-bs-toggle="tab" href="#tab-42">Mandate</a>
-  						</li>
-              <!-- <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#tab-52">E-learning</a>
-              </li> -->
-            </ul>
-          </div>
-          <div class="col-lg-9 mt-4 mt-lg-0">
-          	<div class="tab-content">
-          		<div class="tab-pane active show" id="tab-12">
-          			<div class="row">
-          				<div class="col-lg-8 details order-2 order-lg-1">
-          					<h3>Overview</h3>
-          					<p><%= @college.overview.html_safe%></p>
-          				</div>
-          				<div class="col-lg-4 text-center order-1 order-lg-2">
-          					<%= image_tag "departments-1.jpg", alt:"", class:"img-fluid"%>
-          				</div>
-          			</div>
-          		</div>
-          		<div class="tab-pane" id="tab-22">
-          			<div class="row">
-          				<div class="col-lg-8 details order-2 order-lg-1">
-          					<h3>History</h3>
-          					<p><%= @college.history.html_safe%></p>
-          				</div>
-          				<div class="col-lg-4 text-center order-1 order-lg-2">
-          					<%= image_tag "departments-2.jpg", alt:"", class:"img-fluid"%>
-          				</div>
-          			</div>
-          		</div>
-          		<div class="tab-pane" id="tab-32">
-          			<div class="row">
-          				<div class="col-lg-8 details order-2 order-lg-1">
-          					<h3>Mission & Vision</h3>
-          					<p><%= @college.mission.html_safe%></p>
-          				</div>
-          				<div class="col-lg-4 text-center order-1 order-lg-2">
-          					<%= image_tag "departments-3.jpg", alt:"", class:"img-fluid"%>
-          				</div>
-          			</div>
-          		</div>
-          		<div class="tab-pane" id="tab-42">
-          			<div class="row">
-          				<div class="col-lg-8 details order-2 order-lg-1">
-          					<h3>Mandate</h3>
-          					<p><%= @college.mandate.html_safe%></p>
-          				</div>
-          				<div class="col-lg-4 text-center order-1 order-lg-2">
-          					<%= image_tag "departments-4.jpg", alt:"", class:"img-fluid"%>
-          				</div>
-          			</div>
-          		</div>
-          	</div>
+<main>
+<section class="section">
+<div class="container">
+  <div class="col-12">
+    <h2 class="section-title">ABOUT OUR JOURNY</h2>
+    <p> <%=@college.background.html_safe%></p>
+  </div>
+</div>
+</section>
+  <!-- funfacts -->
+  <section class="section-sm bg-primary">
+    <div class="container">
+      <div class="row">
+        <!-- funfacts item -->
+        <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
+          <div class="text-center">
+            <h2 class="text-white"><%=@college.establishment_date.year%></h2>
+            <h5 class="text-white">STARTING FROM</h5>
           </div>
         </div>
-
-      </div>
-    </section>
-
-    <%
-=begin%>
- <section id="blog" class="blog-mf sect-pt4 route">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="section-title">
-              <h2>
-                Latest News
-              </h2>
-            </div>
+        <!-- funfacts item -->
+        <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
+          <div class="text-center">
+            <h2 class="count text-white" data-count=<%=@college.number_of_prorgam%>>0</h2>
+            <h5 class="text-white">COURSES</h5>
           </div>
         </div>
-        <div class="row">
-        <% @news.each do |n|%>
-          <div class="col-md-4">
-            <div class="card card-blog">
-              <div class="card-img">
-                <a href=""><%= image_tag n.photo, class: "img-fluid" %></a>
-              </div>
-              <div class="card-body">
-                <div class="card-category-box">
-                  <div class="card-category">
-                    <h6 class="category"><%= n.created_at %></h6>
-                  </div>
-                </div>
-                <h3 class="card-title"><a href=""><%= n.news_title %></a></h3>
-                <p class="card-description">
-                  <%= n.overview.html_safe %>
-                </p>
-                <%= link_to "Read More", news_path(n.id), class: "readmore stretched-link mt-auto"%>
-              </div>
-            </div>
+        <!-- funfacts item -->
+        <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
+          <div class="text-center">
+            <h2 class="count text-white" data-count=<%=@college.student_enrolled%>>0</h2>
+            <h5 class="text-white">STUDENTS</h5>
           </div>
-        <% end %>  
         </div>
-      </div>
-    </section> 
-<%
-=end%>
-
-    <section id="about" class="about section-bg">
-      <div class="container" data-aos="fade-up">
-        <div class="row no-gutters">
-          <% @staff.where(job_title: 'PRESIDENT').each do |s|%>
-            <div class="col-xl-4 d-flex align-items-stretch mt-5" >
-              <%= image_tag s.photo, class: "img-fluid mr-2" %>
-            </div>
-            <div class="content col-xl-7 ml-5 d-flex align-items-stretch">
-              <div class="content">
-                <h3>PRESIDENTS MESSAGE</h3>
-                <p>
-                  <%= s.message.html_safe %>
-                </p>
-                <p>
-                  <strong class="text-right"></strong> Congratulations once again!
-                </p>
-              </div>
-            </div>
-          <%end%>
+        <!-- funfacts item -->
+        <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
+          <div class="text-center">
+            <h2 class="count text-white" data-count=<%=@college.distance_center%>>0</h2>
+            <h5 class="text-white">BRANCHES</h5>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-  
+  <!-- /funfacts -->
+  <!-- about -->
+
+  <section id="departments" class="departments mb-3">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Our Services</h2>
+      <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-3 d-flex align-items-stretch">
+        <ul class="nav nav-tabs flex-column" id="portfolio-flters">
+            <% @service.each_with_index do |s,i|%>
+              <% if i == 0 %>
+                <li class="nav-item">
+                  <a class="nav-link active show" data-toggle="tab" href="#tab-<%= i %>"><%= s.service_name.html_safe%></a>
+                </li>
+              <% else %>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#tab-<%= i %>"><%= s.service_name.html_safe%></a>
+                </li>
+              <% end %>
+            <%end%>          
+        </ul>
+      </div>
+      <div class="col-lg-9 mt-4 mt-lg-0">
+        <div class="tab-content portfolio-container">
+          <% @service.each_with_index do |s,i|%>
+              <% if i == 0 %>
+                <div class="tab-pane active show" id="tab-<%= i %>">
+                  <div class="row portfolio-wrap">
+                    <div class="col-lg-8 details order-2 order-lg-1 portfolio-info">
+                      <h3><%= s.service_name.html_safe%></h3>
+                      <p class="font-italic"><%= s.service_overview.html_safe%></p>
+                      <p><%= s.details.html_safe%></p>
+                    </div>
+                    <div class="col-lg-4 text-center order-1 order-lg-2">
+                      <img src="assets/img/departments-1.jpg" alt="" class="img-fluid">
+                    </div>
+                  </div>
+                </div>
+              <% else %>
+                <div class="tab-pane" id="tab-<%= i %>">
+                  <div class="row portfolio-wrap">
+                    <div class="col-lg-8 details order-2 order-lg-1 portfolio-info">
+                      <h3><%= s.service_name.html_safe%></h3>
+                      <p class="font-italic"><%= s.service_overview.html_safe%></p>
+                      <p><%= s.details.html_safe%></p> 
+                    </div>
+                    <div class="col-lg-4 text-center order-1 order-lg-2">
+                      <img src="assets/img/departments-2.jpg" alt="" class="img-fluid">
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+          <%end%> 
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!--marketing-->
+<section class=" bg-primary mt-2">
+  <div class="container">
+    <div class="section-title">
+    <% @marketing.where(page_to_display: 'about').each do |m|%>
+    <div class="text-center">
+      <h2><%= m.headline_title.html_safe%></h2>
+      <p><%= m.description.html_safe%></p>
+      <%link_to "#{m.action}", class:"cta-btn" do %>Learn more<%end%>
+    </div>
+  <% end %>
+  </div>
+</div>
+</div>
+</section>
+<!-- /marketing -->
 <!-- ======= Departments Section ======= -->
 
-<section id="team" class="team section-bg pt-0">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title ">
-          <h2>HEUC Leadership Team</h2>
-        </div>
-
-        <div class="row">
-          <% @staff.where.not(job_title: 'PRESIDENT').where.not(job_title: 'Vice PRESIDENT').each do |s|%>
-            <div class="col-lg-4 d-flex col-md-6 align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-              <div class="member">
-                <div class="member-img">
-                  <%= image_tag s.photo, class: "img-fluid"%>
-                </div>
-                <div class="member-info">
-                  <h4><%= s.fullname%></h4>
-                  <span><%= s.job_title%></span>
-                </div>
-              </div>
-            </div>
-          <% end %>
-
-        </div>
-
+<!-- End Departments Section -->
+    <div class="row mt-5">
+      <div class="col-5 card p-3 border-primary rounded-0 hover-shadow ml-5">
+        <h2 class="section-title">OUR MISSION</h2>
+        <p> <%=@college.mission.html_safe%></p>
       </div>
-    </section>
-
-    <section id="about" class="about section-bg">
-    <div class="container" data-aos="fade-up">
-      <div class="row no-gutters">
-        <% @staff.where(job_title: 'Vice PRESIDENT').each do |s|%>
-          <div class="content col-xl-7 ml-5 d-flex align-items-stretch">
-            <div class="content">
-              <h3>Vice PRESIDENTS MESSAGE</h3>
-              <p>
-                <%= s.message.html_safe %>
-              </p>
-              <p>
-                <strong class="text-right"></strong> Congratulations once again!
-              </p>
-            </div>
-          </div>
-          <div class="col-xl-4 d-flex align-items-stretch mt-5" >
-            <%= image_tag s.photo, class: "img-fluid mr-2" %>
-          </div>
-        <%end%>
+      <div class="col-5 card p-3 border-primary rounded-0 hover-shadow ml-5">
+        <h2 class="section-title">OUR VISION</h2>
+        <p> <%=@college.vision.html_safe%></p>
+      </div>
     </div>
   </div>
 </section>
-
-<!-- End Team Section -->
-
-<!-- ======= Portfolio Section ======= -->
-<section id="portfolio" class="portfolio">
-  <div class="container" data-aos="fade-up">
-
-    <div class="section-title">
-      <h3>Accreditations</h3>
-    </div>
-
-      	<div class="row" data-aos="fade-up" data-aos-delay="100">
-  				<div class="col-lg-12 d-flex justify-content-center">
-  					<ul id="portfolio-flters">
-  						<li data-filter="*" class="filter-active">All</li>
-              <%# <li data-filter=".distance">Distance Programs</li> %>
-  						<li data-filter=".online">Online Programs</li>
-  						<li data-filter=".extention">Extientions Programs</li>
-  						<li data-filter=".regular">Regular Programs</li>
-  					</ul>
-  				</div>
-  			</div>
-
-  			<div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-          <% @accreditations.each do |a|%>
-    				<div class="col-lg-4 col-md-6 portfolio-item <%= a.modality%>">
-    					<div class="portfolio-wrap">
-							<% if a.accreditation_documents[0].blank? %>
-								<div class="portfolio-info">
-									<h4>Data Not Found</h4>
-								</div>
-							<% else %>
-								<%= image_tag a.accreditation_documents[0], class: "img-fluid"%>
-								<div class="portfolio-info">
-									<h4><%= a.accreditation_title%></h4>
-									<p><%= a.modality%></p>
-									<div class="portfolio-links">
-										<%= link_to '<i class="bx bx-plus"></i>'.html_safe, a.accreditation_documents[0], {'data-gall': "portfolioGallery",class: "venobox", title: a.accreditation_title}%>
-									</div>
-								</div>
-							<% end %>
-    					</div>
-    				</div>
-          <%end%>
-    </div>
-  </div>
-</section><!-- End Portfolio Section -->
-
-   	<section id="cta1" class="cta1" data-aos="zoom-in" data-aos-delay="100">
-   		<div class="container aos-init aos-animate " data-aos="zoom-in">
-   
-			<% @marketing.where(page_to_display: 'about').each do |m|%>
-				<div class="text-center">
-					<h3><%= m.headline_title%></h3>
-					<p><%= m.description%></p>
-					<a class="cta1-btn" href="<%= m.action%>">Learn more</a>
-				</div>
-			<% end %>
-   		</div>
-   	</section>
-
-
-<!-- ======= Testimonials Section ======= -->
-<section id="testimonials" class="testimonials">
-  <div class="container" data-aos="fade-up">
-    <div class="section-title">
-      <h2>Testimonials</h2>
-      <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p>
-    </div>
-  </div>
-
-  <div class="container-fluid">
-
-    <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
-      <div class="col-xl-9">
-        <div class="owl-carousel testimonials-carousel">
-          <% @comment.where(display_on_home_page: true).each do |c|%>
-          <div class="testimonial-wrap">
-            <div class="testimonial-item">
-              <img src="assets/images/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-              <h3><%= c.fullname.html_safe%></h3>
-              <p>
-                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                <%= c.message.html_safe%>
-                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-              </p>
-            </div>
-          </div>
-          <% end %>
-
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section><!-- End Testimonials Section -->
-
-
-
-<!-- ======= Frequently Asked Questions Section ======= -->
-<section id="faq" class="faq">
-  <div class="container" data-aos="fade-up">
-
-    <div class="section-title">
-      <h2>Frequently Asked Questions</h2>
-    </div>
-
-    <ul class="faq-list" data-aos="fade-up">
-      <% @faq.each do |c, i|%>
-        <li>
-        <a data-toggle="collapse" class="collapsed" href="#faq1<%= c.id %>"><%= c.question%>? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
-        <div id="faq1<%= c.id %>" class="collapse" data-parent=".faq-list">
+<!-- /about -->
+<section id="about" class="about section-bg">
+<div class="container" data-aos="fade-up">
+  <div class="row no-gutters">
+    <% @staff.where(job_title: 'PRESIDENT').each do |s|%>
+      <div class="content col-xl-6 d-flex align-items-stretch">
+        <div class="content">
+          <h3 class="text-light">PRESIDENTS MESSAGE</h3>
           <p>
-          <%= c.answer%>
+            <%= s.message.html_safe %>
+          </p>
+          <p>
+            <strong class="text-right"></strong> Congratulations once again!
           </p>
         </div>
-      </li>
-    <% end %>
-
-    </ul>
-</section><!-- End Frequently Asked Questions Section -->
-
-
-
-<!-- ======= Contact Section ======= -->
-<section id="contact" class="contact">
-  <div class="container" data-aos="fade-up">
-
-    <div class="section-title">
-      <h2>Contact</h2>
-      <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p>
-    </div>
-
-    <div class="row" data-aos="fade-up" data-aos-delay="100">
-
-      <div class="col-lg-6">
-
-        <div class="row">
-          <div class="col-md-12">
-            <div class="info-box">
-              <i class="bx bx-map"></i>
-              <h3>Our Address</h3>
-              <p>Ethiopia Addis Ababa, Asmara Road</p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="info-box mt-4">
-              <i class="bx bx-envelope"></i>
-              <h3>Email Us</h3>
-              <p>info@heuc.edu.et<br>contact@heuc.edu.et</p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="info-box mt-4">
-              <i class="bx bx-phone-call"></i>
-              <h3>Call Us</h3>
-              <p>+251-11-6-460954<br>+251-11-6-478965</p>
+      </div>
+      <div class="col-xl-6 d-flex align-items-stretch mt-5" >
+        <%= image_tag s.photo, size: "466x350", style: "margin-top: 100px;" %>
+      </div>
+    <%end%>
+</div>
+</div>
+</section>
+<!-- /Testimonials Section -->
+<!-- teachers -->
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="section-title">Our Staff</h2>
+      </div>
+      <!-- staffs -->
+      <% @staff.each do |staff|%>
+        <div class="col-lg-3 col-sm-6 mb-5 mb-lg-0 d-flex align-self-stretch">
+          <div class="card border-0 rounded-0 hover-shadow">
+            <%= image_tag staff.photo, class:"card-img-top rounded-0" %>
+            <div class="card-body  d-flex flex-column">
+                <h4 class="card-title"><%=staff.fullname%></h4>
+              <div class="d-flex justify-content-between">
+                <span><%=staff.job_title%></span>
+              </div>
             </div>
           </div>
         </div>
-
-      </div>
-
-      <div class="col-lg-6">
-        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-          <div class="form-row">
-            <div class="col form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-              <div class="validate"></div>
+      <%end%>
+      <!-- staffs -->
+      <!-- ======= Testimonials Section ======= -->
+      <section id="testimonials" class="testimonials bg-gray">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2>Testimonials</h2>
+            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-xl-10">
+              <div class="owl-carousel testimonials-carousel">
+                <% @comment.where(category: "testimonial").where(display_on_home_page: true).each do |c|%>
+                  <div class="testimonial-wrap">
+                    <div class="testimonial-item">
+                      <%= image_tag(c.photo, class: "testimonial-img") if c.photo.attached?%>
+                      <%# <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt=""> %>
+                      <h3><%= c.fullname.html_safe%></h3>
+                      <h4>Ceo &amp; Founder</h4>
+                      <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        <%= c.message.html_safe%>
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                      </p>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
             </div>
-            <div class="col form-group">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-              <div class="validate"></div>
-            </div>
           </div>
-          <div class="form-group">
-            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-            <div class="validate"></div>
+        </div>
+      </section>
+      <!-- End Testimonials Section -->
+      <!-- ======= Frequently Asked Questions Section ======= -->
+      <section id="faq" class="faq">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h2>Frequently Asked Questions</h2>
           </div>
-          <div class="form-group">
-            <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-            <div class="validate"></div>
-          </div>
-          <div class="mb-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your message has been sent. Thank you!</div>
-          </div>
-          <div class="text-center"><button type="submit">Send Message</button></div>
-        </form>
-      </div>
-
-    </div>
-
-  </div>
-</section><!-- End Contact Section -->
-
-</main><!-- End #main -->
+          <ul class="faq-list" data-aos="fade-up">
+            <% @faq.each do |c, i|%>
+              <li>
+                <a data-toggle="collapse" class="collapsed" href="#faq1<%= c.id %>"><%= c.question%>? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-x icon-close"></i></a>
+                <div id="faq1<%= c.id %>" class="collapse" data-animation-out="fadeOutUp" data-parent=".faq-list">
+                  <p>
+                    <%= c.answer%>
+                  </p>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </section>
+      <!-- End Frequently Asked Questions Section -->
+    </main><!-- End #main -->

@@ -1,3 +1,3 @@
 class Branch < ApplicationRecord
-  belongs_to :college
+    belongs_to :college
 end
