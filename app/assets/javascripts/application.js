@@ -74,13 +74,14 @@ $(document).on('turbolinks:load', function () {
 
         if ($('body').hasClass('mobile-nav-active')) {
           $('body').removeClass('mobile-nav-active');
-          $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
+          // $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
           $('.mobile-nav-overly').fadeOut();
         }
         return false;
       }
     }
   });
+
   $(document).ready(function(){
     var url = $("#cartoonVideo").attr('src');
     
@@ -128,41 +129,31 @@ $(document).on('turbolinks:load', function () {
     });
   });
 
-  // Mobile Navigation
-  if ($('.nav-menu').length) {
-    var $mobile_nav = $('.nav-menu').clone().prop({
-      class: 'mobile-nav d-lg-none'
-    });
-    $('body').append($mobile_nav);
-    $('body').prepend('<button type="button" class="mobile-nav-toggle d-lg-none"><i class="icofont-navigation-menu"></i></button>');
-    $('body').append('<div class="mobile-nav-overly"></div>');
+    /**
+   * Mobile nav toggle
+   */
 
-    $(document).on('click', '.mobile-nav-toggle', function (e) {
-      $('body').toggleClass('mobile-nav-active');
-      $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
-      $('.mobile-nav-overly').toggle();
-    });
+  /**
+   * Mobile nav dropdowns activate
+   */
 
-    $(document).on('click', '.mobile-nav .drop-down > a', function (e) {
-      e.preventDefault();
-      $(this).next().slideToggle(300);
-      $(this).parent().toggleClass('active');
-    });
+  /**
+   * Scrool with ofset on links with a class name .scrollto
+   */
+  on('click', '.scrollto', function(e) {
+    if (select(this.hash)) {
+      e.preventDefault()
 
-    $(document).click(function (e) {
-      var container = $(".mobile-nav, .mobile-nav-toggle");
-      if (!container.is(e.target) && container.has(e.target).length === 0) {
-        if ($('body').hasClass('mobile-nav-active')) {
-          $('body').removeClass('mobile-nav-active');
-          $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
-          $('.mobile-nav-overly').fadeOut();
-        }
+      let navbar = select('#navbar')
+      if (navbar.classList.contains('navbar-mobile')) {
+        navbar.classList.remove('navbar-mobile')
+        let navbarToggle = select('.mobile-nav-toggle')
+        navbarToggle.classList.toggle('bi-list')
+        navbarToggle.classList.toggle('bi-x')
       }
-    });
-  } else if ($(".mobile-nav, .mobile-nav-toggle").length) {
-    $(".mobile-nav, .mobile-nav-toggle").hide();
-  }
-
+      scrollto(this.hash)
+    }
+  }, true)
   // Toggle .header-scrolled class to #header when page is scrolled
   $(window).scroll(function () {
     if ($(this).scrollTop() > 100) {
@@ -315,9 +306,31 @@ $(document).on('turbolinks:load', function () {
 
 
 })
+.on('click', '.kira', function (e) {
+    console.log('hello world')
+    // e.preventDefault()
+    if ($('.navbar').hasClass('navbar-mobile')) {
+      console.log('here')
+      $('.navbar').removeClass('navbar-mobile');
+
+    }
+    else{
+      $('.navbar').addClass('navbar-mobile')
+
+    }
+  });
+  $(document).on('click', '.navbar .dropdown  > a', function(e) {
+    if (select('#navbar').classList.contains('navbar-mobile')) {
+      e.preventDefault()
+      this.nextElementSibling.classList.toggle('dropdown-active')
+    }
+  }, true)
+
+
 // !(function($) {
 //   "use strict";
 
 
 
 // })(jQuery);
+

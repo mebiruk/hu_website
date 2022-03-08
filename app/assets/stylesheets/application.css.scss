@@ -251,13 +251,16 @@ h1, h2, h3, h4, h5, h6 {
   .navbar .dropdown .dropdown:hover > ul {
     left: -100%;
   }
+  .navbar-mobile .dropdown ul {
+    display: fixed;
+  }
 }
 
 /**
 * Mobile Navigation 
 */
 .mobile-nav-toggle {
-  color: #fff;
+  color: #000 !important;
   font-size: 28px;
   cursor: pointer;
   display: none;
@@ -275,6 +278,10 @@ h1, h2, h3, h4, h5, h6 {
 
   .navbar ul {
     display: none;
+  }
+
+  .navbar-mobile .dropdown ul {
+    display: fixed;
   }
 }
 .navbar-mobile {
@@ -320,7 +327,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .navbar-mobile .dropdown ul {
   position: static;
-  display: none;
+  display: fixed;
   margin: 10px 20px;
   padding: 10px 0;
   z-index: 99;
