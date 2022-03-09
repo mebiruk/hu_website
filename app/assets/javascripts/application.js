@@ -44,7 +44,6 @@
 //= require isotope.pkgd.min.js
 //= require venobox.min.js
 //= require aos.js
-//= require bootstrap.min.js
 //= jquery-3.5.1.min.js
 
 
